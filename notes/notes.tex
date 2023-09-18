@@ -277,4 +277,351 @@ in some case, the combinations of {\bf{n}} columns can only fill out {\bf{m}}-D 
 \end{math}
 \newline
 {\bf{A}}{\bf{x}} means: {\bf{A}}{\bf{x}} is a combination of columns of {\bf{A}}
+
+\newpage
+\section{Lecture 02 - 矩阵消元}
+\pagestyle{fancy}
+\lhead{}
+\chead{Lecture 02 - 矩阵消元}
+\rhead{}
+
+\noindent when solving equations-system, 
+\newline
+{\bf{Elimination}}, if it succeeds, it gets the answer.
+\newline
+It's always good to ask how could it fail.
+\vspace{14pt}
+\newline
+\begin{math}
+	\left\{  
+	\begin{array}{rclrclrcl}
+		x & + & 2y & + & z & = & 2 \\
+		3x & + & 8y & + & z & = & 12 \\
+		& & 4y & + & z & = & 2 
+	\end{array}  
+	\right.
+\end{math}
+\vspace{14pt}
+\newline
+\begin{math}
+	\begin{bmatrix}
+		{\bf{\textcolor{anhao-sky}{\mathop{1}\limits_{first-pivot}}}} & 2 & 1 \\
+		3 & 8 & 1 \\
+		0 & 4 & 1
+	\end{bmatrix}
+	\xrightarrow[row_3 - 0 \times row_1]{row_2 - 3 \times row_1}
+	\begin{bmatrix}
+		1 & 2 & 1 \\
+		0 & {\bf{\textcolor{anhao-sky}{\mathop{2}\limits_{second-pivot}}}} & -2 \\
+		0 & 4 & 1
+	\end{bmatrix}
+	\xrightarrow[]{row_3 - 2 \times row_2}
+	\begin{bmatrix}
+		1 & 2 & 1 \\
+		0 & 2 & -2 \\
+		0 & 0 & {\bf{\textcolor{anhao-sky}{\mathop{5}\limits_{third-pivot}}}}
+	\end{bmatrix}
+\end{math}
+\newline
+{\textcolor{anhao-scarlet}{pivots can {\bf{NOT}} be 0 !}}
+\newline
+if there is a 0 in the pivot position, then try to switch lines
+\newline
+if 0 is in the pivot position and no place to exchange, then failure
+\vspace{14pt}
+\newline
+let's bring the right-hand side in (Augmented Matrix)
+\newline
+\begin{math}
+	\left[
+	\begin{array}{ccc|c}
+		1 & 2 & 1 & 2 \\
+		3 & 8 & 1 & 12 \\
+		0 & 4 & 1 & 2
+	\end{array}
+	\right]
+	\longrightarrow
+	\left[
+	\begin{array}{ccc|c}
+		1 & 2 & 1 & 2 \\
+		0 & 2 & -2 & 6 \\
+		0 & 4 & 1 & 2
+	\end{array}
+	\right]
+	\longrightarrow
+	\left[
+	\begin{array}{ccc|c}
+		1 & 2 & 1 & 2 \\
+		0 & 2 & -2 & 6 \\
+		0 & 0 & 5 & -10
+	\end{array}
+	\right]
+	\Rightarrow
+	\left\{  
+	\begin{array}{rclrclrcl}
+		x & + & 2y & + & z  & = & 2 \\
+		  &   & 2y & - & 2z & = & 6  \\
+		  &   &    &   & 5z & = & -10  
+	\end{array}  
+	\right.
+\end{math}
+\newline
+by back-substitution: 
+\begin{math}
+	x = 2, y = 1, z = -2
+\end{math}
+\vspace{14pt}
+\newline
+{\bf{"elimination matrices"}}
+\vspace{14pt}
+\newline
+\begin{math}
+	\begin{bmatrix}
+		{\textcolor{anhao-orange}{\vdots}} & {\textcolor{green}{\vdots}} & {\textcolor{purple}{\vdots}} \\
+		{\textcolor{anhao-orange}{col_1}} & {\textcolor{green}{col_2}} & {\textcolor{purple}{col_3}} \\
+		{\textcolor{anhao-orange}{\vdots}} & {\textcolor{green}{\vdots}} & {\textcolor{purple}{\vdots}}
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 \\
+		2 \\
+		3
+	\end{bmatrix}
+	 = 
+	\begin{bmatrix}
+		\ \\
+		\ \\
+		\ 
+	\end{bmatrix}
+	 = 
+	1 \times {\textcolor{anhao-orange}{col_1}} + 2 \times {\textcolor{green}{col_2}} + 3 \times {\textcolor{purple}{col_3}}
+\end{math}
+\newline
+{\textcolor{anhao-purple}{the result of multiplying a matrix by some vectors, is a combination of columns of the matrix}}
+\vspace{14pt}
+\newline
+\begin{math}
+	\begin{bmatrix}
+		1 & 2 & 7
+	\end{bmatrix}
+	\begin{bmatrix}
+		{\textcolor{anhao-orange}{\cdots}} & {\textcolor{anhao-orange}{row_1}} & {\textcolor{anhao-orange}{\cdots}} \\
+		{\textcolor{green}{\cdots}} & {\textcolor{green}{row_2}} & {\textcolor{green}{\cdots}} \\
+		{\textcolor{purple}{\cdots}} & {\textcolor{purple}{row_3}} & {\textcolor{purple}{\cdots}}
+	\end{bmatrix}
+	 = 
+	\begin{bmatrix}
+		\ & \ & \
+	\end{bmatrix}
+	 = 
+	\begin{array}{rcl}
+		1 & \times &  {\textcolor{anhao-orange}{row_1}} \\
+		 & + & \\
+		2 & \times & {\textcolor{green}{row_2}} \\
+		 & + & \\
+		7 & \times & {\textcolor{purple}{row_3}}
+	\end{array}
+\end{math}
+\newline
+{\textcolor{anhao-purple}{the product of a row times a matrix, is a combination of rows of the matrix}}
+\vspace{14pt}
+\newline
+when we do matrix multiplication, keep your eye on what it is doing with the whole vectors
+\vspace{14pt}
+\newline
+what does the matrix, which can subtract $3 \times row_1$ from $row_2$ look like?
+\newline
+i.e. 
+\begin{math}
+	\begin{bmatrix}
+		? & ? & ? \\
+		? & ? & ? \\
+		? & ? & ? 
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 & 2 & 1 \\
+		3 & 8 & 1 \\
+		0 & 4 & 1 
+	\end{bmatrix}
+	 = 
+	\begin{bmatrix}
+		1 & 2 & 1 \\
+		0 & 2 & -2 \\
+		0 & 4 & 1 
+	\end{bmatrix}
+\end{math}
+\newline
+\begin{math}
+	\begin{bmatrix}
+		? & ? & ? \\
+		? & ? & ? \\
+		? & ? & ? 
+	\end{bmatrix}
+	\\
+	\xrightarrow[]{as \ R_1 = {\textcolor{anhao-scarlet}{\bf{1}}} \times row_1 + {\textcolor{anhao-scarlet}{\bf{0}}} \times row_2 + {\textcolor{anhao-scarlet}{\bf{0}}} \times row_3}
+	\begin{bmatrix}
+		1 & 0 & 0 \\
+		? & ? & ? \\
+		? & ? & ? 
+	\end{bmatrix}
+	\\
+	\xrightarrow[]{as \ R_3 = {\textcolor{anhao-scarlet}{\bf{0}}} \times row_1 + {\textcolor{anhao-scarlet}{\bf{0}}} \times row_2 + {\textcolor{anhao-scarlet}{\bf{1}}} \times row_3}
+	\begin{bmatrix}
+		1 & 0 & 0 \\
+		? & ? & ? \\
+		0 & 0 & 1 
+	\end{bmatrix}
+	\\
+	\xrightarrow[]{as \ R_2 = {\textcolor{anhao-scarlet}{\bf{-3}}} \times row_1 + {\textcolor{anhao-scarlet}{\bf{1}}} \times row_2 + {\textcolor{anhao-scarlet}{\bf{0}}} \times row_3}
+	\begin{bmatrix}
+		1 & 0 & 0 \\
+		-3 & 1 & 0 \\
+		0 & 0 & 1 
+	\end{bmatrix}
+\end{math}
+\newline
+\begin{math}
+	\begin{bmatrix}
+		1 & 0 & 0 \\
+		-3 & 1 & 0 \\
+		0 & 0 & 1 
+	\end{bmatrix}
+\end{math}
+: elementary matrix (初等矩阵)
+\newline
+${\bf{E_{i,j}}}$ means it's the matrix that we use to fix the (i, j) position
+\newline
+e.g. 
+\begin{math}
+	\begin{bmatrix}
+		? & ? & ? \\
+		? & ? & ? \\
+		? & ? & ? 
+	\end{bmatrix}
+	\xrightarrow[]{R_1=row_1}
+	\begin{bmatrix}
+		1 & 0 & 0 \\
+		? & ? & ? \\
+		? & ? & ? 
+	\end{bmatrix}
+	\xrightarrow[]{R_2=row_2}
+	\begin{bmatrix}
+		1 & 0 & 0 \\
+		0 & 1 & 0 \\
+		? & ? & ? 
+	\end{bmatrix}
+	\xrightarrow[]{R_3 = row_3 - 2 \times row_2}
+	\begin{bmatrix}
+		1 & 0 & 0 \\
+		0 & 1 & 0 \\
+		0 & -2 & 1 
+	\end{bmatrix}
+	 = 
+	E_{3,2}
+\end{math}
+\vspace{14pt}
+\newline
+in elimination, we can use an elementary matrix to describe the change in each step
+\vspace{14pt}
+\newline
+the next point in this lecture is to put these steps together, into a matrix that does these steps all in sequence, in another words, how could I create the matrix that does the whole job at once? i.e.
+\begin{displaymath}
+	{\bf{E_{3,2}}}({\bf{E_{2,1}}}{\bf{A}}) = {\bf{U}} \Longleftrightarrow {\bf{\boxed{?}}}{\bf{A}} = {\bf{U}}
+\end{displaymath}
+\vspace{14pt}
+\newline
+{\bf{Associative Law}}
+\begin{displaymath}
+	({\bf{A}}{\bf{B}}){\bf{C}} = {\bf{A}}({\bf{B}}{\bf{C}})
+\end{displaymath}
+\vspace{14pt}
+\newline
+permutation(置换): 
+\begin{itemize}
+	\item exchange rows, e.g.
+	\par 
+	\begin{math}
+		\begin{bmatrix}
+			? & ? \\
+			? & ?
+		\end{bmatrix}
+		\begin{bmatrix}
+			a & b \\
+			c & d
+		\end{bmatrix}
+		 = 
+		\begin{bmatrix}
+			c & d \\
+			a & b
+		\end{bmatrix}
+	\end{math}
+	\par {\bf{P}} = 
+	\begin{math}
+		\begin{bmatrix}
+			0 & 1 \\
+			1 & 0
+		\end{bmatrix}
+	\end{math}
+	is to exchange $row_1$ and $row_2$
+	\item exchange columns, e.g.
+	\par 
+	\begin{math}
+		\begin{bmatrix}
+			a & b \\
+			c & d
+		\end{bmatrix}
+		\begin{bmatrix}
+			? & ? \\
+			? & ?
+		\end{bmatrix}
+		= 
+		\begin{bmatrix}
+			b & a \\
+			d & c
+		\end{bmatrix}
+	\end{math}
+	\par {\bf{P}} = 
+	\begin{math}
+		\begin{bmatrix}
+			0 & 1 \\
+			1 & 0
+		\end{bmatrix}
+	\end{math}
+	is to exchange $col_1$ and $col_2$
+\end{itemize}
+\vspace{14pt}
+{\textcolor{anhao-purple}{when I multiply a matrix on the left, I am doing row operations}}
+\newline
+{\textcolor{anhao-purple}{if I want to do column operations, I should put a matrix on the right}}
+\vspace{14pt}
+\newline
+if ${\bf{\boxed{?}}}{\bf{A}} = {\bf{U}}$, then how can I "from {\bf{U}} back to {\bf{A}}"?
+\newline
+this is about reversing steps, invertible, $\cdots$
+\newline
+\begin{math}
+	\begin{bmatrix}
+		1 & 0 & 0 \\
+		-3 & 1 & 0 \\
+		0 & 0 & 1
+	\end{bmatrix}^{-1}
+	 = 
+	\begin{bmatrix}
+		1 & 0 & 0 \\
+		3 & 1 & 0 \\
+		0 & 0 & 1
+	\end{bmatrix}
+\end{math}
+\newline
+"what steps can get me back?"
+\newline
+"what matrix can bring me back?"
+
+\newpage
+\section{Lecture 03 - 乘法和逆矩阵}
+\pagestyle{fancy}
+\lhead{}
+\chead{Lecture 03 - 乘法和逆矩阵}
+\rhead{}
+
+
 \end{document}

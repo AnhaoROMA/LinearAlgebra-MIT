@@ -1,1 +1,3 @@
 \contentsline {section}{\numberline {1}Lecture 01 - 方程组的几何解释}{1}{section.1}%
+\contentsline {section}{\numberline {2}Lecture 02 - 矩阵消元}{3}{section.2}%
+\contentsline {section}{\numberline {3}Lecture 03 - 乘法和逆矩阵}{6}{section.3}%
