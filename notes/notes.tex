@@ -1,6 +1,7 @@
 \documentclass[12pt, a4paper]{article}
 
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{booktabs}
 \usepackage{ctex}
 \usepackage{enumitem}
@@ -36,7 +37,7 @@
 \chead{Lecture 01 - 方程组的几何解释}
 \rhead{}
 
-\noindent{\bf{n}} linear equations, {\bf{n}} unknowns
+\noindent${\mathbf{n}}$ linear equations, ${\mathbf{n}}$ unknowns
 \begin{itemize}
 	\item row picture
 	\item column picture {\textcolor{anhao-scarlet}{\bf{$\star$}}}
@@ -69,21 +70,21 @@
 \end{math}
 , i.e.
 \newline
-{\bf{A}} (matrix of coefficients) = 
+${\mathbf{A}}$ (matrix of coefficients) = 
 \begin{math}
 \begin{bmatrix}
 	2  & -1 \\
 	-1 & 2
 \end{bmatrix}
 \end{math}
-, {\bf{x}} (vector of unknowns) = 
+, ${\mathbf{x}}$ (vector of unknowns) = 
 \begin{math}
 \begin{bmatrix}
 	x \\
 	y
 \end{bmatrix}
 \end{math}
-, {\bf{b}} = 
+, ${\mathbf{b}}$ = 
 \begin{math}
 \begin{bmatrix}
 	0 \\
@@ -92,7 +93,7 @@
 \end{math}
 , such that
 \begin{displaymath}
-{\bf{A}}{\bf{x}}={\bf{b}}
+{\mathbf{A}}{\mathbf{x}}={\mathbf{b}}
 \end{displaymath}
 \vspace{14pt}
 what's the {\textcolor{anhao-scarlet}{\bf{row}}} picture?
@@ -127,10 +128,10 @@ y
 \begin{displaymath}
 1{\overrightarrow{c_1}}+2{\overrightarrow{c_2}}={\overrightarrow{b}}
 \end{displaymath}
-{\textcolor{anhao-purple}{to find the linear combination of columns of {\bf{A}}, such that it equals {\bf{b}}}}
+{\textcolor{anhao-purple}{to find the linear combination of columns of ${\mathbf{A}}$, such that it equals ${\mathbf{b}}$}}
 \vspace{14pt}
 \newline
-what linear combination gives {\bf{b}}?
+what linear combination gives ${\mathbf{b}}$?
 \newline
 what do all the linear combinations give?
 \newline
@@ -177,7 +178,7 @@ what are all the possible, achievable right-hand sides be?
 \end{math}
 \quad : meet at a point
 \newline
-{\bf{A}} = 
+${\mathbf{A}}$ = 
 \begin{math}
 \begin{bmatrix}
 	2  & -1 & 0 \\
@@ -185,7 +186,7 @@ what are all the possible, achievable right-hand sides be?
 	0 & -3 & 4
 \end{bmatrix}
 \end{math}
-, {\bf{b}} =
+, ${\mathbf{b}}$ =
 \begin{math} 
 \begin{bmatrix}
 	0 \\
@@ -229,13 +230,13 @@ x
 \end{math}
 \vspace{14pt}
 \newline
-can I always solve {\bf{A}}{\bf{x}} = {\bf{b}} for every right-hand side {\bf{b}}?
+can I always solve ${\mathbf{A}}$${\mathbf{x}}$ = ${\mathbf{b}}$ for every right-hand side ${\mathbf{b}}$?
 \newline
 do the linear combinations of the columns fill 3-dimensional space?
 \newline
-{\textcolor{anhao-purple}{for this {\bf{A}}, the answer is {\bf{YES}} (non-singular, invertible)}}
+{\textcolor{anhao-purple}{for this ${\mathbf{A}}$, the answer is {\bf{YES}} (non-singular, invertible)}}
 \newline
-{\textcolor{anhao-purple}{but for some others {\bf{A}}, the answer could be {\bf{NO}} (singular, not-invertible)}}
+{\textcolor{anhao-purple}{but for some others ${\mathbf{A}}$, the answer could be {\bf{NO}} (singular, not-invertible)}}
 \vspace{14pt}
 \newline
 if the 3 columns all lie in the same plane, 
@@ -245,7 +246,7 @@ so I could solve it for some right-hand sides, when ${\overrightarrow{b}}$ is in
 but most right-hand sides would be out of the plane and unreachable.
 \vspace{14pt}
 \newline
-in some case, the combinations of {\bf{n}} columns can only fill out {\bf{m}}-D (m < n)
+in some case, the combinations of ${\mathbf{n}}$ columns can only fill out ${\mathbf{m}}$-D ($m < n$)
 \vspace{14pt}
 \newline
 \begin{math}
@@ -276,7 +277,7 @@ in some case, the combinations of {\bf{n}} columns can only fill out {\bf{m}}-D 
 \end{bmatrix}
 \end{math}
 \newline
-{\bf{A}}{\bf{x}} means: {\bf{A}}{\bf{x}} is a combination of columns of {\bf{A}}
+${\mathbf{A}}$${\mathbf{x}}$ means: ${\mathbf{A}}$${\mathbf{x}}$ is a combination of columns of ${\mathbf{A}}$
 
 \newpage
 \section{Lecture 02 - 矩阵消元}
@@ -488,7 +489,7 @@ i.e.
 \end{math}
 : elementary matrix (初等矩阵)
 \newline
-${\bf{E_{i,j}}}$ means it's the matrix that we use to fix the (i, j) position
+${\mathbf{E_{i,j}}}$ means it's the matrix that we use to fix the (i, j) position
 \newline
 e.g. 
 \begin{math}
@@ -525,13 +526,13 @@ in elimination, we can use an elementary matrix to describe the change in each s
 \newline
 the next point in this lecture is to put these steps together, into a matrix that does these steps all in sequence, in another words, how could I create the matrix that does the whole job at once? i.e.
 \begin{displaymath}
-	{\bf{E_{3,2}}}({\bf{E_{2,1}}}{\bf{A}}) = {\bf{U}} \Longleftrightarrow {\bf{\boxed{?}}}{\bf{A}} = {\bf{U}}
+	{\mathbf{E_{3,2}}}({\mathbf{E_{2,1}}}{\mathbf{A}}) = {\mathbf{U}} \Longleftrightarrow {\mathbf{\boxed{?}}}{\mathbf{A}} = {\mathbf{U}}
 \end{displaymath}
 \vspace{14pt}
 \newline
 {\bf{Associative Law}}
 \begin{displaymath}
-	({\bf{A}}{\bf{B}}){\bf{C}} = {\bf{A}}({\bf{B}}{\bf{C}})
+	({\mathbf{A}}{\mathbf{B}}){\mathbf{C}} = {\mathbf{A}}({\mathbf{B}}{\mathbf{C}})
 \end{displaymath}
 \vspace{14pt}
 \newline
@@ -554,7 +555,7 @@ permutation(置换):
 			a & b
 		\end{bmatrix}
 	\end{math}
-	\par {\bf{P}} = 
+	\par ${\mathbf{P}}$ = 
 	\begin{math}
 		\begin{bmatrix}
 			0 & 1 \\
@@ -579,7 +580,7 @@ permutation(置换):
 			d & c
 		\end{bmatrix}
 	\end{math}
-	\par {\bf{P}} = 
+	\par ${\mathbf{P}}$ = 
 	\begin{math}
 		\begin{bmatrix}
 			0 & 1 \\
@@ -594,7 +595,7 @@ permutation(置换):
 {\textcolor{anhao-purple}{if I want to do column operations, I should put a matrix on the right}}
 \vspace{14pt}
 \newline
-if ${\bf{\boxed{?}}}{\bf{A}} = {\bf{U}}$, then how can I "from {\bf{U}} back to {\bf{A}}"?
+if ${\mathbf{\boxed{?}}}{\mathbf{A}} = {\mathbf{U}}$, then how can I "from ${\mathbf{U}}$ back to ${\mathbf{A}}$"?
 \newline
 this is about reversing steps, invertible, $\cdots$
 \newline
@@ -623,5 +624,529 @@ this is about reversing steps, invertible, $\cdots$
 \chead{Lecture 03 - 乘法和逆矩阵}
 \rhead{}
 
-
+\noindent
+key words:
+\begin{itemize}
+	\item matrix multiplication (4 ways)
+	\item inverse of ${\mathbf{A}}$, ${\mathbf{AB}}$, ${\mathbf{A^{T}}}$
+	\item Gauss-Jordan, to find ${\mathbf{A^{-1}}}$
+\end{itemize}
+\vspace{14pt}
+\begin{math}
+	\underbrace{
+		\begin{bmatrix}
+			\ \ & \ & \ & \ \ \\
+			\ \ & \ & \ & \ \ \\
+			\ \ & \ & \ & \ \ 
+		\end{bmatrix}
+	}_{\mathbf{A}}
+	\underbrace{
+		\begin{bmatrix}
+			\ \ & \ & \ \ \\
+			\ \ & \ & \ \ \\
+			\ \ & \ & \ \ \\
+			\ \ & \ & \ \ 
+		\end{bmatrix}
+	}_{\mathbf{B}}
+	 = 
+	\underbrace{
+		\begin{bmatrix}
+			\ \ & \ & \ \ \\
+			\ \ & c_{i,j} & \ \ \\
+			\ \ & \ & \ \ 
+		\end{bmatrix}
+	}_{\mathbf{C=AB}}
+\end{math}
+\newline
+$c_{i,j}$ comes from $row_i$ of ${\mathbf{A}}$ and $col_j$ of ${\mathbf{B}}$
+\newline
+e.g.
+\par 
+\begin{math}
+	\begin{aligned}
+		c_{3,4} &= 
+		\begin{bmatrix}
+			\ & \ & \ & \ & \ \\
+			\ & {\textcolor{anhao-orange}{row_3}} & {\textcolor{anhao-orange}{of}} & {\textcolor{anhao-orange}{\mathbf{A}}} & \ \\
+			\ & \ & \ & \ & \ 
+		\end{bmatrix}
+		\begin{bmatrix}
+			\ & \ & \ \\
+			\ & {\textcolor{anhao-purple}{col_4}} & \ \\
+			\ & {\textcolor{anhao-purple}{of}} & \ \\
+			\ & {\textcolor{anhao-purple}{\mathbf{B}}} & \ \\
+			\ & \ & \
+		\end{bmatrix} \\
+				&= a_{3,1}b_{1,4} + a_{3,2}b_{2,4} + \cdots + a_{3,i}b_{i,4} + \cdots + a_{3,n}b_{n,4} \\
+				&= \sum_{k=1}^{n}a_{3,k}b_{k,4}
+	\end{aligned}
+\end{math}
+\vspace{14pt}
+\newline
+{\textcolor{anhao-scarlet}{the number of columns of ${\mathbf{A}}$ has to match the number of rows of ${\mathbf{B}}$}
+\begin{displaymath}
+	{\mathbf{A}}_{m \times n}{\mathbf{B}}_{n \times p} = {\mathbf{C}}_{m \times p}
+\end{displaymath}
+\vspace{14pt}
+the matrix times the $n^{\text{th}}$ column is the $n^{\text{th}}$ column of the answer
+\begin{center}
+	\includegraphics[scale=0.5]{figures/S3-1.png}
+\end{center}
+so I could think of multiplying a matrix by a vector, side by side
+\newline
+I can just think of having several columns, multiplying by ${\mathbf{A}}$, and getting the columns of answer
+\vspace{14pt}
+\newline
+{\textcolor{anhao-purple}{the columns of ${\mathbf{C}}$ are combinations of columns of ${\mathbf{A}}$}}
+\newline
+$\Longleftrightarrow$ every column of ${\mathbf{C}}$ is a combination of columns of ${\mathbf{A}}$, and numbers in ${\mathbf{B}}$ tell me what the combination is
+\newline
+in the same way, {\textcolor{anhao-purple}{the rows of ${\mathbf{C}}$ are combinations of rows of ${\mathbf{B}}$}}
+\vspace{14pt}
+\newline
+what about " 
+\begin{math}
+	\underbrace{col \ \ of \ \ {\mathbf{A}}}_{m \times 1}
+	\quad \times \quad
+	\underbrace{row \ \ of \ \ {\mathbf{B}}}_{1 \times p}
+\end{math}
+ "?
+\newline
+e.g.
+\par 
+\begin{math}
+	\begin{bmatrix}
+		2 \\
+		3 \\
+		4
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 & 6
+	\end{bmatrix}
+	 = 
+	\begin{bmatrix}
+		2 & 12 \\
+		3 & 18 \\
+		4 & 24 
+	\end{bmatrix}
+\end{math}
+\par 
+\begin{math}
+	\begin{bmatrix}
+		2 & 7 \\
+		3 & 8 \\
+		4 & 9 
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 & 6 \\
+		0 & 0 
+	\end{bmatrix}
+	 = 
+	\begin{bmatrix}
+		2 \\
+		3 \\
+		4
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 & 6
+	\end{bmatrix}
+	 + 
+	\begin{bmatrix}
+		7 \\
+		8 \\
+		9
+	\end{bmatrix}
+	\begin{bmatrix}
+		0 & 0
+	\end{bmatrix}
+\end{math}
+\newline
+\begin{math}
+	\begin{aligned}
+		{\mathbf{AB}} &= {\text{sum of}} \ \ (col_i \ of \ {\mathbf{A}}) \times (row_i \ of \ {\mathbf{B}}) \\
+		&= \sum_{i=1}^{n}(col_i \ of \ {\mathbf{A}}) \times (row_i \ of \ {\mathbf{B}})
+	\end{aligned}
+\end{math}
+\vspace{14pt}
+\newline
+{\textcolor{anhao-purple}{the row space}} for 
+\begin{math}
+	\begin{bmatrix}
+		2 & 12 \\
+		3 & 18 \\
+		4 & 24
+	\end{bmatrix}
+\end{math}
+, which is like all combinations of the rows, is the line through the row-vector 
+\begin{math}
+	\begin{bmatrix}
+		1 & 6
+	\end{bmatrix}
+\end{math}, the same to {\textcolor{anhao-purple}{the column space}}
+\vspace{14pt}
+\newline
+you could also cut the matrix into blocks and do the multiplication by blocks, i.e.
+\begin{displaymath}
+	\underbrace{
+		\left[
+		\begin{array}{c|c}
+			{\mathbf{A_1}} & {\mathbf{A_2}} \\
+			\hline
+			{\mathbf{A_3}} & {\mathbf{A_4}}
+		\end{array}
+		\right]
+	}_{{\mathbf{A}}}
+	\underbrace{
+		\left[
+		\begin{array}{c|c}
+			{\mathbf{B_1}} & {\mathbf{B_2}} \\
+			\hline
+			{\mathbf{B_3}} & {\mathbf{B_4}}
+		\end{array}
+		\right]
+	}_{{\mathbf{B}}}
+	 = 
+	\underbrace{
+		\left[
+		\begin{array}{c|c}
+			{\mathbf{A_1B_1+A_2B_3}} & {\mathbf{A_1B_2+A_2B_4}} \\
+			\hline
+			{\mathbf{A_3B_1+A_4B_3}} & {\mathbf{A_3B_2+A_4B_4}}
+		\end{array}
+		\right]
+	}_{{\mathbf{AB}}}
+\end{displaymath}
+\vspace{14pt}
+\newline
+\noindent{\textcolor{anhao-purple}{Inverses (square matrices)}}
+\newline
+not all matrices have inverses, if a matrix is square, is it invertible or not?
+\newline
+if ${\mathbf{A}}$ is invertible, non-singular, then
+\begin{displaymath}
+	{\mathbf{A^{-1}}}{\mathbf{A}} = {\mathbf{I}} = {\mathbf{A}}{\mathbf{A^{-1}}}
+\end{displaymath}
+in singular case, no inverse!
+\newline
+e.g.
+\par 
+\begin{math}
+	{\mathbf{A}} = 
+	\begin{bmatrix}
+		1 & 3 \\
+		2 & 6
+	\end{bmatrix}
+\end{math}
+\par thinking about columns here, if I multiply ${\mathbf{A}}$ by some other matrices, the columns of the results are all multiples of 
+\begin{math}
+	\begin{bmatrix}
+		1 \\
+		2
+	\end{bmatrix}
+\end{math}
+, so no way to get the identity matrix ${\mathbf{I}}$
+\par there is another more important reason
+\par a square matrix has no inverse if I can find a vector ${\mathbf{x}}$ such that ${\mathbf{A}}{\mathbf{x}} = {\mathbf{0}}$ and ${\mathbf{x}} \neq {\mathbf{0}}$
+\par but 
+\par \qquad
+\begin{math}
+	\begin{bmatrix}
+		1 & 3 \\
+		2 & 6
+	\end{bmatrix}
+	\begin{bmatrix}
+		3 \\
+		-1
+	\end{bmatrix}
+	 = 
+	\begin{bmatrix}
+		0 \\
+		0
+	\end{bmatrix}
+\end{math}
+\vspace{14pt}
+\newline
+{\textcolor{anhao-scarlet}{the matrix can't have an inverse if some columns give no contribution!}}
+\vspace{14pt}
+\newline
+because
+\par if 
+\begin{math}
+	{\mathbf{A}} = 
+	\begin{bmatrix}
+		1 & 3 \\
+		2 & 6
+	\end{bmatrix}
+\end{math}
+ has an inverse, named ${\mathbf{A^{-1}}}$, then 
+\begin{math}
+	{\mathbf{A^{-1}}}{\mathbf{A}}
+	\begin{bmatrix}
+		3 \\
+		-1
+	\end{bmatrix}
+	 = 
+	{\mathbf{A^{-1}}}
+	\begin{bmatrix}
+		0 \\
+		0
+	\end{bmatrix}
+\end{math}
+, 
+\par 
+and meanwhile, 
+\begin{math}
+	{\mathbf{A^{-1}}}{\mathbf{A}}
+	\begin{bmatrix}
+		3 \\
+		-1
+	\end{bmatrix}
+	= 
+	{\mathbf{I}}
+	\begin{bmatrix}
+		3 \\
+		-1
+	\end{bmatrix}
+	 = 
+	\begin{bmatrix}
+		3 \\
+		-1
+	\end{bmatrix}
+\end{math}
+, 
+\par
+so that 
+\begin{math}
+	\begin{bmatrix}
+		3 \\
+		-1
+	\end{bmatrix}
+	 = 
+	\begin{bmatrix}
+		0 \\
+		0
+	\end{bmatrix}
+\end{math}
+, which is not True
+\vspace{14pt}
+\newline
+{\textcolor{anhao-scarlet}{our conclusion is that for non-invertible/singular matrices, some combinations of their columns give the zero column}}
+\vspace{14pt}
+\newline
+let's take a matrix that does have an inverse for example
+\newline
+e.g.
+\par 
+\begin{math}
+	{
+		\underbrace{
+			\begin{bmatrix}
+				1 & 3 \\
+				2 & 7
+			\end{bmatrix}
+		}_{\mathbf{A}}
+	}
+	{
+		\underbrace{
+			\begin{bmatrix}
+				a & b \\
+				c & d
+			\end{bmatrix}
+		}_{\mathbf{A^{-1}}}
+	}
+	 = 
+	{
+		\underbrace{
+			\begin{bmatrix}
+				1 & 0 \\
+				0 & 1
+			\end{bmatrix}
+		}_{\mathbf{I}}
+	}
+\end{math}
+\par then
+\begin{math}
+	\left\{  
+	\begin{array}{rcl}
+		{\mathbf{A}}
+		\begin{bmatrix}
+			a \\
+			b 
+		\end{bmatrix}
+		& = & 
+		\begin{bmatrix}
+		 	1 \\
+		 	0 
+		\end{bmatrix} 
+		\\
+		{\mathbf{A}}
+		\begin{bmatrix}
+			c \\
+			d 
+		\end{bmatrix}
+		& = & 
+		\begin{bmatrix}
+		 	0 \\
+		 	1 
+		\end{bmatrix}
+	\end{array}  
+	\right.
+\end{math}
+\newline
+generally, 
+\begin{displaymath}
+	{\mathbf{A}} \cdot (col_j \ of \ {\mathbf{A^{-1}}}) = (col_j \ of \ {\mathbf{I}})
+\end{displaymath}
+\vspace{14pt}
+\newline
+then how to solve the inverse for an invertible matrix?
+\newline
+here is the Gauss-Jordan idea, to solve two equations at once
+\newline
+\begin{math}
+	\left\{  
+	\begin{array}{rcl}
+		\begin{bmatrix}
+			1 & 3 \\
+			2 & 7 
+		\end{bmatrix}
+		\begin{bmatrix}
+			a \\
+			b 
+		\end{bmatrix}
+		& = & 
+		\begin{bmatrix}
+			1 \\
+			0 
+		\end{bmatrix} 
+		\\
+		\begin{bmatrix}
+			1 & 3 \\
+			2 & 7 
+		\end{bmatrix}
+		\begin{bmatrix}
+			c \\
+			d 
+		\end{bmatrix}
+		& = & 
+		\begin{bmatrix}
+			0 \\
+			1 
+		\end{bmatrix}
+	\end{array}  
+	\right.
+\end{math}
+\newline
+"solve them together!"
+\newline
+\begin{math}
+	\underbrace{
+		\left[
+		\begin{array}{cc|cc}
+			1 & 3 & 1 & 0 \\
+			2 & 7 & 0 & 1
+		\end{array}
+		\right]
+	}_{
+		\left[
+		\begin{array}{c|c}
+			{\mathbf{A}} & {\mathbf{I}}
+		\end{array}
+		\right]
+	}
+	\rightarrow
+	\left[
+	\begin{array}{cc|cc}
+		1 & 3 & 1 & 0 \\
+		0 & 1 & -2 & 1
+	\end{array}
+	\right]
+	\rightarrow
+	\underbrace{
+		\left[
+		\begin{array}{cc|cc}
+			1 & 0 & 7 & -3 \\
+			0 & 1 & -2 & 1
+		\end{array}
+		\right]
+	}_{
+		\left[
+		\begin{array}{c|c}
+			{\mathbf{I}} & {\mathbf{A^{-1}}}
+		\end{array}
+		\right]
+	}
+\end{math}
+\newline
+把单位矩阵当成草稿纸，记录下对左侧矩阵的变换
+\newline
+相当于左右两边同时乘上逆矩阵，当左边变成单位矩阵时，右边即是该逆矩阵
+\newline
+i.e.
+\par
+\begin{math}
+	\begin{aligned}
+		{\mathbf{E}}_{i_1,j_1}
+		{\mathbf{E}}_{i_2,j_2}
+		\cdots
+		{\mathbf{E}}_{i_n,j_n}
+		\left[
+		\begin{array}{c|c}
+			{\mathbf{A}} & {\mathbf{I}}
+		\end{array}
+		\right]
+		&= 
+		\left[
+		\begin{array}{c|c}
+			{{\mathbf{E}}_{i_1,j_1}{\mathbf{E}}_{i_2,j_2}\cdots{\mathbf{E}}_{i_n,j_n}{\mathbf{A}}} & {{\mathbf{E}}_{i_1,j_1}{\mathbf{E}}_{i_2,j_2}\cdots{\mathbf{E}}_{i_n,j_n}{\mathbf{I}}}
+		\end{array}
+		\right]
+		\\
+		&= 
+		\left[
+		\begin{array}{c|c}
+			{\mathbf{I}} & 
+			{\mathbf{E}}_{i_1,j_1}{\mathbf{E}}_{i_2,j_2}\cdots{\mathbf{E}}_{i_n,j_n}
+		\end{array}
+		\right]
+	\end{aligned}
+\end{math}
+\par
+then 
+\begin{math}
+	{\mathbf{A^{-1}}} = {\mathbf{E}}_{i_1,j_1}{\mathbf{E}}_{i_2,j_2}\cdots{\mathbf{E}}_{i_n,j_n}
+\end{math}
+\par 注：
+\par\qquad 
+\begin{math}
+	{\mathbf{E}}_{i_t,j_t}
+	\left[
+	\begin{array}{c|c}
+		{\mathbf{A}} & {\mathbf{I}}
+	\end{array}
+	\right]
+\end{math}
+，即对
+\begin{math}
+	\left[
+	\begin{array}{c|c}
+		{\mathbf{A}} & {\mathbf{I}}
+	\end{array}
+	\right]
+\end{math}
+做行变换
+$\Longleftrightarrow$
+对${\mathbf{A}}$与${\mathbf{I}}$同时、做同样的行变换
+\par\qquad 
+同理，可以对
+\begin{math}
+	\left[
+	\begin{array}{c}
+		{\mathbf{A}} \\
+		\hline
+	    {\mathbf{I}}
+	\end{array}
+	\right]
+\end{math}
+做列变换，求得${\mathbf{A^{-1}}}$
 \end{document}
