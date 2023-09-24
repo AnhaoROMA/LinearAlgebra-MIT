@@ -2,3 +2,5 @@
 \contentsline {section}{\numberline {2}Lecture 02 - 矩阵消元}{3}{section.2}%
 \contentsline {section}{\numberline {3}Lecture 03 - 乘法和逆矩阵}{6}{section.3}%
 \contentsline {section}{\numberline {4}Lecture 04 - 矩阵的LU分解}{10}{section.4}%
+\contentsline {section}{\numberline {5}Lecture 05 - 转置、置换、向量空间}{13}{section.5}%
+\contentsline {section}{\numberline {6}Lecture 06 - 列空间和零空间}{16}{section.6}%

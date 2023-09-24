@@ -1478,4 +1478,410 @@ it's a little family of matrices there
 	{\mathbf{P^{-1}}} = {\mathbf{P}}
 \end{displaymath}
 $4 \times 4$ case $\longrightarrow$ $24$ ${\mathbf{P}}'s$
+
+\newpage
+\section{Lecture 05 - 转置、置换、向量空间}
+\pagestyle{fancy}
+\lhead{}
+\chead{Lecture 05 - 转置、置换、向量空间}
+\rhead{}
+
+\noindent 书接上回 \quad those are matrices ${\mathbf{P}}$ and they execute row exchanges
+\vspace{14pt}
+\newline
+${\mathbf{A = LU}}$ \quad : assume no row exchanges
+\newline
+${\mathbf{PA = LU}}$ \quad : ${\mathbf{P}}$ gets the rows into the right order
+\vspace{14pt}
+\newline
+permutations ${\mathbf{P}}$ is the identity matrix with reordered rows
+\begin{displaymath}
+	{\mathbf{P^{-1}}} = {\mathbf{P^{T}}}
+\end{displaymath}
+\begin{displaymath}
+	{\mathbf{P^{T}}}{\mathbf{P}} = {\mathbf{I}}
+\end{displaymath}
+we'll be interested in matrices that have ${\mathbf{P^{T}}}{\mathbf{P}} = {\mathbf{I}}$, {\textcolor{anhao-scarlet}{there are more of them than just permutations}}
+\vspace{14pt}
+\newline
+\begin{math}
+	\begin{bmatrix}
+		1 & 3 \\
+		2 & 3 \\
+		4 & 1 
+	\end{bmatrix}^{T}
+	 = 
+	\begin{bmatrix}
+		1 & 2 & 4 \\
+		3 & 3 & 1 
+	\end{bmatrix}
+\end{math}
+\vspace{14pt}
+\newline
+Transpose: $\left({\mathbf{A^{T}}}\right)_{i,j} = {\mathbf{A}}_{j,i}$
+\newline
+Symmetric Matrices: ${\mathbf{A^{T}}} = {\mathbf{A}}$
+\vspace{14pt}
+\newline
+${\mathbf{R^TR}}$ is always symmetric
+\newline
+e.g.
+\begin{math}
+	\begin{bmatrix}
+		1 & 3 \\
+		2 & 3 \\
+		4 & 1
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 & 2 & 4 \\
+		3 & 3 & 1 
+	\end{bmatrix}
+	 = 
+	\begin{bmatrix}
+		10 & 11 & 7 \\
+		11 & 13 & 11 \\
+		7 & 11 & 17
+	\end{bmatrix}
+\end{math}
+\newline
+\begin{math}
+	\because
+	\left({\mathbf{R^TR}}\right)^{\mathbf{T}}
+	 = 
+	{\mathbf{R^T}}\left({\mathbf{R^T}}\right)^{\mathbf{T}}
+	 = 
+	{\mathbf{R^T}}{\mathbf{R}}
+\end{math}
+\newpage
+\noindent what are vector spaces?
+\newline
+what are sub-spaces?
+\vspace{14pt}
+\newline
+Example:
+\par $\mathbb{R}^2$ $\rightarrow$ all 2-dim Real vectors, 
+\begin{math}
+	\begin{bmatrix}
+		3 \\
+		2
+	\end{bmatrix}
+\end{math}
+, 
+\begin{math}
+	\begin{bmatrix}
+		0 \\
+		0
+	\end{bmatrix}
+\end{math}
+, 
+\begin{math}
+	\begin{bmatrix}
+		\pi \\
+		e
+	\end{bmatrix}
+\end{math}
+, 
+$\cdots$
+\par the whole plane is $\mathbb{R}^2$, so $\mathbb{R}^2$ is the plane ($xy$ plane)
+\par but the point is, it's a vector space
+\par {\textcolor{anhao-scarlet}{Every vector space has to ensure that zero vector in it.}}
+\par $\mathbb{R}^3$ $\rightarrow$ all 3-dim Real vectors
+\par $\mathbb{R}^n$ $\rightarrow$ all vectors with $n$ real components
+\vspace{14pt}
+\newline
+can we do additions and do we stay in the space?
+\begin{center}
+	\includegraphics[scale=0.5]{figures/S5-1.png}
+\end{center}
+in this figure, it's NOT a vector space, because it's not closed, for example, under multiplication by real numbers
+\vspace{14pt}
+\newline
+{\textcolor{anhao-scarlet}{a vector space has to be closed under}} multiplication and addition of vectors, in other words, {\textcolor{anhao-scarlet}{linear combination}}
+\vspace{14pt}
+\newline
+$\mathbb{R}^n$ is the most important, but we will be interested in vector spaces that are inside $\mathbb{R}^n$, vector spaces that follow the rules
+\begin{center}
+	\includegraphics[scale=0.5]{figures/S5-2.png}
+\end{center}
+this is a vector space inside $\mathbb{R}^2$ (sub-space of $\mathbb{R}^2$)
+\vspace{14pt}
+\newline
+what are the possible sub-spaces of $\mathbb{R}^2$?
+\begin{enumerate}
+	\item the whole space, $\mathbb{R}^2$ itself
+	\item lines through 
+		$\begin{bmatrix}
+			0 \\
+			0
+		\end{bmatrix}$
+	 (not the same as $\mathbb{R}^1$)
+	\item zero vector only
+\end{enumerate}
+what are the possible sub-spaces of $\mathbb{R}^3$?
+\begin{enumerate}
+	\item $\mathbb{R}^3$
+	\item plane through the origin
+	\item line through the origin
+	\item zero vector only
+\end{enumerate}
+\vspace{14pt}
+how do sub-spaces come from matrices?
+\vspace{14pt}
+\newline
+I want to create some sub-spaces out of this matrix: 
+\begin{math}
+	{\mathbf{A}} = 
+	\begin{bmatrix}
+		1 & 3 \\
+		2 & 3 \\
+		4 & 1
+	\end{bmatrix}
+\end{math}
+\newline
+all linear combinations of its columns (from $\mathbb{R}^3$) form a sub-space, called "column space", $C(\mathbf{A})$
+\vspace{14pt}
+\newline
+the key idea is, we have to be able to take their combinations, still in the sub-space
+\vspace{14pt}
+\newline
+if $col_1 // col_2$, then the column space is only a line through the origin
+
+\newpage
+\section{Lecture 06 - 列空间和零空间}
+\pagestyle{fancy}
+\lhead{}
+\chead{Lecture 06 - 列空间和零空间}
+\rhead{}
+
+vector space requirements
+\newline
+$\Longleftrightarrow$ ${\mathbf{v+w}}$ and $c{\mathbf{v}}$ are in the space
+\newline
+$\Longleftrightarrow$ all combinations $c{\mathbf{v}}+d{\mathbf{w}}$ are in the space
+\vspace{14pt}
+\newline
+notice that these two requirements mean
+\newline
+the sum and the scale of multiplication combine into linear combinations
+\vspace{14pt}
+\newline
+Example: $\mathbb{R}^3$
+\par 2 subspaces: $P$ - a plane, $L$ - a line
+\par \ding{202} the union of those, $P \cup L$, has all vectors in $P$ or $L$ or both, is that a subspace?
+\par NO!
+\par \ding{203} the intersection, $P \cap L$, has all vectors that are in both, is that a subspace?
+\par YES!
+\par the general question is, I have subspaces $S$ and $T$, is their intersection $S \cap T$ a subspace?
+\par YES!
+\par proof:
+\par\qquad if ${\mathbf{v}} \in S \cap T$, ${\mathbf{w}} \in S \cap T$
+\par\qquad then ${\mathbf{v}}+{\mathbf{w}} \in S$ and ${\mathbf{v}}+{\mathbf{w}} \in T$
+\par\qquad so ${\mathbf{v}}+{\mathbf{w}} \in S \cap T$
+\par\qquad if ${\mathbf{v}} \in S \cap T$
+\par\qquad then $c{\mathbf{v}} \in S$ and $c{\mathbf{v}} \in T$
+\par\qquad so $c{\mathbf{v}} \in S \cap T$
+\par in other words, when you take the intersection of two subspaces, 
+\par you get probably a smaller subspace, but it is still a subspace
+\vspace{31pt}
+\newline
+\begin{math}
+	{\mathbf{A}} = 
+	\begin{bmatrix}
+		1 & 1 & 2 \\
+		2 & 1 & 3 \\
+		3 & 1 & 4 \\
+		4 & 1 & 5
+	\end{bmatrix}
+\end{math}
+\newline
+the column space of ${\mathbf{A}}$, $C(\mathbf{A})$, is a subspace of $\mathbb{R}^4$
+\newline
+what's in that subspace?
+\newline
+not only the columns of ${\mathbf{A}}$, but also their linear combinations
+\vspace{14pt}
+\newline
+so $C(\mathbf{A})$ is all linear combinations of ${\mathbf{A}}$'s columns
+\vspace{14pt}
+\newline
+so I would like to know
+\begin{math}
+	\left\{
+		\begin{array}{l}
+			\text{what's in that space?} \\
+			\text{how big is that space?} \\
+			\text{is that the whole of 4-dim space? or is it a subspace inside?}
+		\end{array}
+	\right.
+\end{math}
+\newline
+取三个四维向量进行线性组合，怎么也得不到整个四维空间嘛！
+\vspace{14pt}
+\newline
+let's make this question connected with linear equations, 
+\newline
+does ${\mathbf{A}}{\mathbf{x}} = {\mathbf{b}}$ always have a solution for every ${\mathbf{b}}$?
+\newline
+NO, ${\mathbf{A}}{\mathbf{x}} = {\mathbf{b}}$ does not have a solution for every ${\mathbf{b}}$!
+\vspace{14pt}
+\newline
+for example, 4 equations and 3 unknowns, 
+\newline
+(the combinations of 3 columns cannot always fill the 4-dim space)
+\newline
+there's going to be some ${\mathbf{b}}$, are not linear combinations of the 3 columns, but sometimes can
+\vspace{14pt}
+\newline
+what ${\mathbf{b}}$'s allow me to solve ${\mathbf{A}}{\mathbf{x}} = {\mathbf{b}}$?
+\vspace{14pt}
+\newline
+I can solve ${\mathbf{A}}{\mathbf{x}} = {\mathbf{b}}$ {\textcolor{anhao-scarlet}{exactly when 当且仅当}} the right-hand side ${\mathbf{b}}$ is a vector in $C(\mathbf{A})$. ( {\textcolor{anhao-scarlet}{OR}} ${\mathbf{b}}$ is a linear combination of ${\mathbf{A}}$'s columns. )
+\vspace{14pt}
+\newline
+so, $C(\mathbf{A})$ consists of all vectors ${\mathbf{A}}{\mathbf{x}}$ ($\forall{\mathbf{x}}$)
+\vspace{14pt}
+\newline
+if ${\mathbf{b}}$ is not a combination of ${\mathbf{A}}$'s columns, then there is no "${\mathbf{x}}$", there is no way to solve ${\mathbf{A}}{\mathbf{x}} = {\mathbf{b}}$
+\vspace{14pt}
+\newline
+Example: 
+\begin{math}
+	{\mathbf{A}} = 
+	\begin{bmatrix}
+		1 & 1 & 2 \\
+		2 & 1 & 3 \\
+		3 & 1 & 4 \\
+		4 & 1 & 5
+	\end{bmatrix}
+\end{math}
+\par 
+Question: Are those columns independent?
+\vspace{14pt}
+\par 
+if I take the linear combinations of ${\mathbf{A}}$'s columns, does each column contributes something new or not? do I get a 3-D subspace?
+\par 
+NO!
+\vspace{14pt}
+\par 
+can I throw away any column, and will get the same column space?
+\par 
+YES!
+\vspace{14pt}
+\par 
+so for this ${\mathbf{A}}$, $C(\mathbf{A})$ is a 2-D subspace of $\mathbb{R}^4$
+\vspace{31pt}
+\newline
+the null space 零空间 , is going to be a totally different subspace
+\vspace{14pt}
+\newline
+the null space of ${\mathbf{A}}$, what's in it?
+\begin{itemize}
+	\item it contains not right-hand side ${\mathbf{b}}$
+	\item it contains ${\mathbf{x}}$'s
+	\item it contains all ${\mathbf{x}}$'s that solve "${\mathbf{A}}{\mathbf{x}} = {\mathbf{0}}$"
+\end{itemize}
+\vspace{14pt}
+\begin{math}
+	\begin{bmatrix}
+		1 & 1 & 2 \\
+		2 & 1 & 3 \\
+		3 & 1 & 4 \\
+		4 & 1 & 5 
+	\end{bmatrix}
+	\begin{bmatrix}
+		x_1 \\
+		x_2 \\
+		x_3 
+	\end{bmatrix}
+	 = 
+	\begin{bmatrix}
+		0 \\
+		0 \\
+		0 \\
+		0
+	\end{bmatrix}
+\end{math}
+\newline
+the null space certainly contains zero ($\because$ the null space is a vector space as well)
+\newline
+for this ${\mathbf{A}}$, 
+\par\qquad $N({\mathbf{A}})$ contains 
+\begin{math}
+	\begin{bmatrix}
+		0 \\
+		0 \\
+		0
+	\end{bmatrix}
+\end{math}
+, 
+\begin{math}
+	\begin{bmatrix}
+		1 \\
+		1 \\
+		-1
+	\end{bmatrix}
+\end{math}
+, 
+\begin{math}
+	\begin{bmatrix}
+		-4 \\
+		-4 \\
+		4
+	\end{bmatrix}
+\end{math}
+, 
+$\cdots$
+, 
+\begin{math}
+	\begin{bmatrix}
+		c \\
+		c \\
+		-c
+	\end{bmatrix}
+\end{math}
+\par\qquad $N({\mathbf{A}})$ = 
+\begin{math}
+	c
+	\begin{bmatrix}
+		1 \\
+		1 \\
+		-1
+	\end{bmatrix}
+\end{math}
+\par\qquad the null space is a line in $\mathbb{R}^3$
+\vspace{14pt}
+\par\qquad to check that the solutions to ${\mathbf{A}}{\mathbf{x}} = {\mathbf{0}}$ always give a subspace
+\par\qquad proof:
+\par\qquad\qquad if ${\mathbf{A}}{\mathbf{x}} = {\mathbf{0}}$ and ${\mathbf{A}}{\mathbf{x^*}} = {\mathbf{0}}$
+\par\qquad\qquad then ${\mathbf{A}}({\mathbf{x}}+{\mathbf{x^*}}) = {\mathbf{0}}$
+\par\qquad\qquad what's more, ${\mathbf{A}}(c{\mathbf{x}}) = c({\mathbf{A}}{\mathbf{x}})$
+\vspace{31pt}
+\newline
+\begin{math}
+	\begin{bmatrix}
+		1 & 1 & 2 \\
+		2 & 1 & 3 \\
+		3 & 1 & 4 \\
+		4 & 1 & 5 
+	\end{bmatrix}
+	\begin{bmatrix}
+		x_1 \\
+		x_2 \\
+		x_3 
+	\end{bmatrix}
+	= 
+	\begin{bmatrix}
+		1 \\
+		2 \\
+		3 \\
+		4
+	\end{bmatrix}
+\end{math}
+\newline
+I would like to know all the solutions to this equation, and if these solutions form a subspace?
+\newline
+NO! As zero vector is not a solution, and subspaces have to go through the origin.
+\vspace{14pt}
+\newline
+{\textcolor{anhao-purple}{the solutions is a plane/line that does not go through the origin}}
 \end{document}
