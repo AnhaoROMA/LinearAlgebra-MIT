@@ -4,3 +4,4 @@
 \contentsline {section}{\numberline {4}Lecture 04 - 矩阵的LU分解}{10}{section.4}%
 \contentsline {section}{\numberline {5}Lecture 05 - 转置、置换、向量空间}{13}{section.5}%
 \contentsline {section}{\numberline {6}Lecture 06 - 列空间和零空间}{16}{section.6}%
+\contentsline {section}{\numberline {7}Lecture 07 - 求解 Ax=0 ：主变量与特解}{19}{section.7}%

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.4.12)  24 SEP 2023 21:55
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.4.12)  25 SEP 2023 23:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -944,21 +944,39 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[18] (./notes.aux)
+[18]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[19]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[20] (./notes.aux)
 Package rerunfilecheck Info: File `notes.out' has not changed.
-(rerunfilecheck)             Checksum: 2A568D9A47AAC80ABF097764B0ADD5B6;1032.
+(rerunfilecheck)             Checksum: 6EC74DB3B7C3D2D76B9D18F4805EE758;1257.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 686 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 17521 strings out of 476179
- 358426 string characters out of 5810426
- 725410 words of memory out of 5000000
- 37984 multiletter control sequences out of 15000+600000
+ 17543 strings out of 476179
+ 359819 string characters out of 5810426
+ 725656 words of memory out of 5000000
+ 38006 multiletter control sequences out of 15000+600000
  477489 words of font info for 85 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  89i,21n,97p,365b,555s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on notes.pdf (19 pages).
+Output written on notes.pdf (21 pages).

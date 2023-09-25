@@ -1884,4 +1884,258 @@ NO! As zero vector is not a solution, and subspaces have to go through the origi
 \vspace{14pt}
 \newline
 {\textcolor{anhao-purple}{the solutions is a plane/line that does not go through the origin}}
+
+\newpage
+\section{Lecture 07 - 求解 Ax=0 ：主变量与特解}
+\pagestyle{fancy}
+\lhead{}
+\chead{Lecture 07 - 求解 Ax=0 ：主变量与特解}
+\rhead{}
+
+\noindent what's the algorithm for solving ${\mathbf{A}}{\mathbf{x}} = {\mathbf{0}}$ ?
+\vspace{14pt}
+\newline
+that's the null space that I'm interested in
+\vspace{14pt}
+\newline
+\begin{math}
+	{\mathbf{A}} = 
+	\begin{bmatrix}
+		1 & 2 & 2 & 2 \\
+		2 & 4 & 6 & 8 \\
+		3 & 6 & 8 & 10
+	\end{bmatrix}
+	\longrightarrow
+	\begin{bmatrix}
+		1 & 2 & 2 & 2 \\
+		0 & 0 & 2 & 4 \\
+		0 & 0 & 2 & 4 
+	\end{bmatrix}
+	\longrightarrow
+	\begin{bmatrix}
+		1 & 2 & 2 & 2 \\
+		0 & 0 & 2 & 4 \\
+		0 & 0 & 0 & 0 
+	\end{bmatrix}
+	 = 
+	{\mathbf{U}}
+\end{math}
+\newline
+while I am doing elimination, 
+\newline
+I am not changing the solutions $\Longrightarrow$ I am not changing the null space
+\vspace{14pt}
+\newline
+\begin{math}
+	\begin{bmatrix}
+		 & 1 &   & 2 &   & 2 &   & 2 & \\
+		 & {\textcolor{anhao-sky}{=}} & {\textcolor{anhao-sky}{=}} & {\textcolor{anhao-sky}{=}} & {\textcolor{anhao-sky}{=}} &   &   &   & \\
+		 & 0 &   & 0 & {\textcolor{anhao-sky}{||}} & 2 &   & 4 & \\
+		 &   &   &   & {\textcolor{anhao-sky}{=}} & {\textcolor{anhao-sky}{=}} & {\textcolor{anhao-sky}{=}} & {\textcolor{anhao-sky}{=}} & \\
+		 & 0 &   & 0 &   & 0 &   & 0 & 
+	\end{bmatrix}
+\end{math}
+ : echelon form, staircase form
+\newline
+there are two pivots only
+\vspace{14pt}
+\newline
+{\textcolor{anhao-scarlet}{the number of pivots = the rank of the matrix = the number of pivot variables}}
+\vspace{14pt}
+\newline
+\begin{math}
+	{\mathbf{A}}{\mathbf{x}} = {\mathbf{0}}
+	\Longrightarrow
+	{\mathbf{U}}{\mathbf{x}} = {\mathbf{0}}
+\end{math}
+\qquad {\textcolor{anhao-scarlet}{same solutions, same null space}}
+\vspace{14pt}
+\newline
+how do I describe the solutions?
+\newline
+四个三维向量一定线性相关
+\vspace{14pt}
+\newline
+\begin{math}
+	\begin{bmatrix}
+		{\textcolor{blue}{\boxed{1}}} & {\textcolor{anhao-orange}{2}} & {\textcolor{blue}{2}} & {\textcolor{anhao-orange}{2}} \\
+		{\textcolor{blue}{0}} & {\textcolor{anhao-orange}{0}} & {\textcolor{blue}{\boxed{2}}} & {\textcolor{anhao-orange}{4}} \\
+		{\textcolor{blue}{0}} & {\textcolor{anhao-orange}{0}} & {\textcolor{blue}{0}} & {\textcolor{anhao-orange}{0}} 
+	\end{bmatrix}
+\end{math}
+\qquad
+2 {\textcolor{anhao-orange}{free columns}}, 
+2 {\textcolor{blue}{pivot columns}}
+\newline
+{\bf{free}} means that we can assign values freely, and we can find the other values accordingly
+\vspace{14pt}
+\newline
+for convenient purpose, we choose 1 and 0 to those free variables
+\vspace{14pt}
+\newline
+\begin{math}
+	{\mathbf{x_1}} = 
+	\begin{bmatrix}
+		-2 \\
+		{\textcolor{anhao-scarlet}{1}} \\
+		0 \\
+		{\textcolor{anhao-scarlet}{0}}
+	\end{bmatrix}
+\end{math}
+ , 
+\begin{math}
+	{\mathbf{x_2}} = 
+	\begin{bmatrix}
+		2 \\
+		{\textcolor{anhao-scarlet}{0}} \\
+		-2 \\
+		{\textcolor{anhao-scarlet}{1}}
+	\end{bmatrix}
+\end{math}
+\qquad
+2 special solutions (I gave special numbers to free variables)
+\newline
+what are all the solutions to ${\mathbf{A}}{\mathbf{x}} = {\mathbf{0}}$ or ${\mathbf{U}}{\mathbf{x}} = {\mathbf{0}}$ ?
+\newline
+\begin{math}
+	{\mathbf{x}} = 
+	c
+	\begin{bmatrix}
+		-2 \\
+		{\textcolor{anhao-scarlet}{1}} \\
+		0 \\
+		{\textcolor{anhao-scarlet}{0}}
+	\end{bmatrix}
+	 + 
+	d
+	\begin{bmatrix}
+		2 \\
+		{\textcolor{anhao-scarlet}{0}} \\
+		-2 \\
+		{\textcolor{anhao-scarlet}{1}}
+	\end{bmatrix}
+	 = 
+	c{\mathbf{x_1}} + d{\mathbf{x_2}}
+\end{math}
+\newline
+I am taking all the linear combinations of my 2 special solutions, and they are null space.
+\vspace{14pt}
+\newline
+how many special solution are there? 每个自由变量对应一个特解
+\vspace{14pt}
+\newline
+\begin{math}
+	\begin{bmatrix}
+		\ & \ & \ & \ & \ \\
+		\ & \ & \ & \ & \ 
+	\end{bmatrix}_{m \times n}
+\end{math}
+ with rank $r$, $(n-r)$ free variables
+\newline
+we get $r$ pivot variables, so there are really $r$ equations there, only $r$ independent equations, and there are $(n-r)$ variables that we can choose freely
+\vspace{14pt}
+\newline
+Algorithms to Solve ${\mathbf{A}}{\mathbf{x}} = {\mathbf{0}}$
+\begin{enumerate}
+	\item do elimination
+	\item decide which are pivot columns and which are free columns
+	\item give values to free variables
+	\item complete pivot values accordingly
+	\item do linear combinations
+\end{enumerate}
+\vspace{14pt}
+reduced row echelon form (${\mathbf{U}}$ 还可以简化)
+\newline
+\begin{math}
+	{\mathbf{U}} = 
+	\begin{bmatrix}
+		1 & 2 & 2 & 2 \\
+		0 & 0 & 2 & 4 \\
+		0 & 0 & 0 & 0 
+	\end{bmatrix}
+	\longrightarrow
+	\begin{bmatrix}
+		1 & 2 & 0 & -2 \\
+		0 & 0 & 2 & 4 \\
+		0 & 0 & 0 & 0 
+	\end{bmatrix}
+	\longrightarrow
+	\begin{bmatrix}
+		{\boxed{1}} & 2 & 0 & -2 \\
+		0 & 0 & {\boxed{1}} & 2 \\
+		0 & 0 & 0 & 0 
+	\end{bmatrix}
+	 = 
+	{\mathbf{R}}
+\end{math}
+\newline
+in rref, it has zeros above and below the pivots
+\vspace{14pt}
+\newline
+\begin{math}
+	\begin{bmatrix}
+		{\boxed{1}} & 2 & 0 & -2 \\
+		0 & 0 & {\boxed{1}} & 2 \\
+		0 & 0 & 0 & 0 
+	\end{bmatrix}
+\end{math}
+\newline
+notice that there is an identity sitting in the pivot rows and pivot columns!
+\vspace{14pt}
+\newline
+\begin{math}
+	{\mathbf{A}}{\mathbf{x}} = {\mathbf{0}}
+	\Longrightarrow
+	{\mathbf{U}}{\mathbf{x}} = {\mathbf{0}}
+	\Longrightarrow
+	{\mathbf{R}}{\mathbf{x}} = {\mathbf{0}}
+\end{math}
+\vspace{31pt}
+\newline
+\begin{math}
+	{\mathbf{A}} = 
+	\begin{bmatrix}
+		1 & 2 & 2 & 2 \\
+		2 & 4 & 6 & 8 \\
+		3 & 6 & 8 & 10
+	\end{bmatrix}
+\end{math}
+\newline
+\begin{math}
+	{\mathbf{A^{T}}} = 
+	\begin{bmatrix}
+		1 & 2 & 3 \\
+		2 & 4 & 6 \\
+		2 & 6 & 8 \\
+		2 & 8 & 10
+	\end{bmatrix}
+	\longrightarrow
+	\begin{bmatrix}
+		1 & 2 & 3 \\
+		0 & 0 & 0 \\
+		0 & 2 & 2 \\
+		0 & 4 & 4
+	\end{bmatrix}
+	\longrightarrow
+	\begin{bmatrix}
+		1 & 2 & 3 \\
+		0 & 1 & 1 \\
+		0 & 0 & 0 \\
+		0 & 0 & 0
+	\end{bmatrix}
+	\longrightarrow
+	\begin{bmatrix}
+		1 & 0 & 1 \\
+		0 & 1 & 1 \\
+		0 & 0 & 0 \\
+		0 & 0 & 0
+	\end{bmatrix}
+\end{math}
+\newline
+so the rank is 2 again!
+\newline
+the number of special solutions is 1
+\vspace{14pt}
+\newline
+{\textcolor{anhao-scarlet}{the fact: the number of pivot columns of ${\mathbf{A}}$ and ${\mathbf{A^{T}}}$ is the same}}
 \end{document}
