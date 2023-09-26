@@ -2138,4 +2138,204 @@ the number of special solutions is 1
 \vspace{14pt}
 \newline
 {\textcolor{anhao-scarlet}{the fact: the number of pivot columns of ${\mathbf{A}}$ and ${\mathbf{A^{T}}}$ is the same}}
+
+\newpage
+\section{Lecture 08 - 可解性与解的结构}
+\pagestyle{fancy}
+\lhead{}
+\chead{Lecture 08 - 可解性与解的结构}
+\rhead{}
+
+\noindent
+\begin{math}
+	\left\{  
+	\begin{array}{rclrclrclrcl}
+		1x_1 & + & 2x_2 & + & 2x_3 & + & 2x_4 & = & b_1 \\
+		2x_1 & + & 4x_2 & + & 6x_3 & + & 8x_4 & = & b_2 \\
+		3x_1 & + & 6x_2 & + & 8x_3 & + & 10x_4 & = & b_3
+	\end{array}  
+	\right.
+\end{math}
+\newline
+there is a condition on $b_1$, $b_2$, $b_3$ for this system to have a solution
+\vspace{14pt}
+\newline
+\begin{math}
+	\underbrace{
+		\left[
+			\begin{array}{cccc|c}
+				1 & 2 & 2 & 2 & b_1 \\
+				2 & 4 & 6 & 8 & b_2 \\
+				3 & 6 & 8 & 10 & b_3 
+			\end{array}
+		\right]
+	}_{
+		{\text{augmented matrix}} = 
+		\left[
+			\begin{array}{c|c}
+				{\mathbf{A}} & {\mathbf{b}}
+			\end{array}
+		\right]
+	}
+	\longrightarrow
+	\left[
+	\begin{array}{cccc|l}
+		1 & 2 & 2 & 2 & b_1 \\
+		0 & 0 & 2 & 4 & b_2-2b_1 \\
+		0 & 0 & 2 & 4 & b_3-3b_1 
+	\end{array}
+	\right]
+	\longrightarrow
+	\left[
+	\begin{array}{cccc|l}
+		1 & 2 & 2 & 2 & b_1 \\
+		0 & 0 & 2 & 4 & b_2-2b_1 \\
+		0 & 0 & 0 & 0 & b_3-b_2-b_1 
+	\end{array}
+	\right]
+\end{math}
+\newline
+$b_3-b_2-b_1=0$, this is the condition for solvability
+\newline
+suppose that 
+\begin{math}
+	{\mathbf{b}} = 
+	\begin{bmatrix}
+		1 \\
+		5 \\
+		6 
+	\end{bmatrix}
+\end{math}
+ , 
+\newline
+\begin{math}
+	\left[
+	\begin{array}{c|c}
+		{\mathbf{A}} & {\mathbf{b}}
+	\end{array}
+	\right]
+	\longrightarrow
+	\left[
+	\begin{array}{cccc|c}
+		1 & 2 & 2 & 2 & 1 \\
+		0 & 0 & 2 & 4 & 3 \\
+		0 & 0 & 0 & 0 & 0 
+	\end{array}
+	\right]
+\end{math}
+\vspace{14pt}
+\newline
+what are the conditions on ${\mathbf{b}}$ that make the equation system solvable?
+\vspace{14pt}
+\newline
+Solvability Condition on ${\mathbf{b}}$
+\begin{itemize}
+	\item 表述一
+	\par 当且仅当 ${\mathbf{b}}$ 属于 ${\mathbf{A}}$ 的列空间时成立 
+	\par 或者 ${\mathbf{b}}$ 必须是 ${\mathbf{A}}$ 各列的线性组合
+	\item 表述二
+	\par if a combination of the rows of ${\mathbf{A}}$ gives the zero row,
+	\par the same combination of the components of ${\mathbf{b}}$ has to give zero
+\end{itemize}
+\vspace{14pt}
+what's the algorithm to find the solutions?
+\begin{enumerate}
+	\item a particular solution, ${\mathbf{x}}_{particular}$
+	\par to set all free variables to zero, 
+	\par since those free variables can be anything,
+	\par then solve ${\mathbf{A}}{\mathbf{x}} = {\mathbf{b}}$ to get the pivot variables
+	\par in this case, 
+	\begin{math}
+		{\mathbf{x}}_p = 
+		\begin{bmatrix}
+			-2 \\
+			0 \\
+			3/2 \\
+			0 
+		\end{bmatrix}
+	\end{math}
+	\item ${\mathbf{x}}$ from null space, ${\mathbf{x}}_{nullspace}$
+	\par in this case, 
+	\begin{math}
+		{\mathbf{x}}_n = 
+		c_1
+		\begin{bmatrix}
+			-2 \\
+			1 \\
+			0 \\
+			0 
+		\end{bmatrix}
+		 + 
+		c_2
+		\begin{bmatrix}
+			2 \\
+			0 \\
+			-2 \\
+			1 
+		\end{bmatrix}
+	\end{math}
+	\item ${\mathbf{x}}_{c}={\mathbf{x}}_{p}+{\mathbf{x}}_{n}$, ${\mathbf{x}}_{complete}$
+	\par in this case, 
+	\begin{math}
+		{\mathbf{x}}_c = 
+		\begin{bmatrix}
+			-2 \\
+			0 \\
+			3/2 \\
+			0 
+		\end{bmatrix}
+		 + 
+		c_1
+		\begin{bmatrix}
+			-2 \\
+			1 \\
+			0 \\
+			0 
+		\end{bmatrix}
+		+ 
+		c_2
+		\begin{bmatrix}
+			2 \\
+			0 \\
+			-2 \\
+			1 
+		\end{bmatrix}
+	\end{math}
+\end{enumerate}
+\begin{center}
+	\includegraphics[scale=0.8]{figures/S8-1.png}
+	\newline
+	{\textcolor{anhao-scarlet}{“由零空间这个子空间从原点平移过来得到的平面”}}
+\end{center}
+\vspace{31pt}
+think of a $m \times n$ matrix ${\mathbf{A}}$ of rank $r$, 
+\begin{math}
+	\left\{
+		\begin{array}{rcl}
+			r \leq m \\
+			r \leq n 
+		\end{array}
+	\right.
+\end{math}
+\newline
+\begin{itemize}
+	\item full column rank ( $r=n$ )
+	\par 意味着全部向量撑开全部的维数
+	\par there's a pivot in every column, no free variables
+	\par there are no free variables to give values, so the null space is only the zero vector
+	\par i.e. $N({\mathbf{A}})=\left\{{\mathbf{0}}\right\}$
+	\par the complete solution to ${\mathbf{A}}{\mathbf{x}} = {\mathbf{b}}$ is just ${\mathbf{x}}_p$, it's the unique solution if ${\mathbf{x}}_p$ exists
+	\par “列满秩时，如果解存在（${\mathbf{b}} \in C({\mathbf{A}})$），那么解唯一” “此时只有零个解或一个解”
+	\item full row rank ( $r=m$ )
+	\par every row has a pivot
+	\par I can solve ${\mathbf{A}}{\mathbf{x}} = {\mathbf{b}}$ for any ${\mathbf{b}}$
+	\par “在消元时没有得到零行！”
+	\par number(free-variables) = $n-m$
+	\item $r=m=n$ 
+	\par invertible!
+	\par 此时 ${\mathbf{A}}{\mathbf{x}} = {\mathbf{b}}$ 必定有解且解唯一
+	\item $r<m$ and $r<n$
+	\par 0 solution or $\infty$ solutions
+\end{itemize}
+
 \end{document}
