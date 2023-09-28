@@ -2338,4 +2338,197 @@ think of a $m \times n$ matrix ${\mathbf{A}}$ of rank $r$,
 	\par 0 solution or $\infty$ solutions
 \end{itemize}
 
+\newpage
+\section{Lecture 09 - 线性相关性、基、维数}
+\pagestyle{fancy}
+\lhead{}
+\chead{Lecture 09 - 线性相关性、基、维数}
+\rhead{}
+
+\noindent key words:
+\begin{itemize}
+	\item linear independence
+	\item spanning a space
+	\item basis for a subspace / basis for a vector space
+	\item the dimension of a subspace
+\end{itemize}
+we talk about a bunch of vectors 
+\begin{math}
+	\left\{
+		\begin{array}{l}
+			{\text{being independent}} \\
+			{\text{spanning a space}} \\
+			{\text{being a basis}}
+		\end{array}
+	\right.
+\end{math}
+\vspace{14pt}
+\newline
+suppose ${\mathbf{A}}$ is a $m \times n$ ($m < n$) matrix, ($\#unknowns > \#equations$)
+\newline
+then there are non-zero solutions to ${\mathbf{A}}{\mathbf{x}} = {\mathbf{0}}$
+\newline
+$\Longrightarrow$ 在 ${\mathbf{A}}$ 的零空间中，除了零向量之外，还包含了其他一些向量
+\vspace{14pt}
+\newline
+the reason is, there will be free variables, at least one, which I can assign non-zero values to
+\vspace{14pt}
+\newline
+vectors ${\mathbf{x_1}}$, ${\mathbf{x_2}}$, $\cdots$ , ${\mathbf{x_n}}$ are independent if no combination, except the "zero combination", gives the zero vector
+\begin{center}
+	\includegraphics[scale=0.6]{figures/S9-1.png}
+\end{center}
+{\textcolor{anhao-purple}{\bf{corollary}}}
+\begin{itemize}
+	\item if the zero vector is in there, "independent is dead"
+	\item 如果零空间 $N({\mathbf{A}})$ 里存在非零向量，那么各列相关
+\end{itemize}
+\vspace{14pt}
+when ${\mathbf{v_1}}$, ${\mathbf{v_2}}$, $\cdots$ , ${\mathbf{v_n}}$ are columns of ${\mathbf{A}}$,
+\newline
+they are independent if null space of ${\mathbf{A}}$ is only the zero vector, $rank=n$, NO free variables,
+\newline
+they are dependent if there exists non-zero ${\mathbf{c}}$, such that ${\mathbf{A}}{\mathbf{c}}={\mathbf{0}}$, $rank<n$, YES free variables
+\vspace{14pt}
+\newline
+vectors ${\mathbf{v_1}}$, ${\mathbf{v_2}}$, $\cdots$ , ${\mathbf{v_l}}$ span a space means,
+\newline
+the space consists of all combinations of those vectors,
+\newline
+the space will be the smallest space with those combinations in it
+\vspace{14pt}
+\newline
+the column space of a matrix, is the space spanned by its columns
+\vspace{14pt}
+\newline
+a basis for a vector space is a sequence of vectors, ${\mathbf{v_1}}$, ${\mathbf{v_2}}$, $\cdots$ , ${\mathbf{v_d}}$, with 2 properties:
+\newline
+{\textcolor{anhao-scarlet}{（向量的个数刚刚好）}}
+\begin{itemize}
+	\item they are independent
+	\item they can span the space
+\end{itemize}
+\vspace{14pt}
+Example: space is $\mathbb{R}^3$
+\par one basis is 
+\begin{math}
+	\begin{bmatrix}
+		1 \\
+		0 \\
+		0 
+	\end{bmatrix}
+\end{math}
+, 
+\begin{math}
+	\begin{bmatrix}
+		0 \\
+		1 \\
+		0 
+	\end{bmatrix}
+\end{math}
+, 
+\begin{math}
+	\begin{bmatrix}
+		0 \\
+		0 \\
+		1 
+	\end{bmatrix}
+\end{math}
+\par another basis is 
+\begin{math}
+	\begin{bmatrix}
+		1 \\
+		1 \\
+		2 
+	\end{bmatrix}
+\end{math}
+, 
+\begin{math}
+	\begin{bmatrix}
+		2 \\
+		2 \\
+		5 
+	\end{bmatrix}
+\end{math}
+, 
+\begin{math}
+	\begin{bmatrix}
+		3 \\
+		4 \\
+		5 
+	\end{bmatrix}
+\end{math}
+\vspace{14pt}
+\newline
+{\textcolor{anhao-purple}{for $\mathbb{R}^n$, $n$ vectors give a basis if the $n \times n$ matrix with those columns is invertible}}
+\vspace{14pt}
+\newline
+{\textcolor{anhao-purple}{the basis is not unique, for $\mathbb{R}^3$, any invertible $3 \times 3$ matrix, its columns are a basis for $\mathbb{R}^3$}}
+\vspace{14pt}
+\newline
+but there is a common character of those bases, that's the number of vectors!
+\vspace{14pt}
+\newline
+{\textcolor{anhao-purple}{Given a space, every basis for the space has the same number\footnote{Def. dimension of the space} of vectors.}}
+\vspace{14pt}
+\newline
+Example: 
+\begin{math}
+	{\mathbf{A}} = 
+	\begin{bmatrix}
+		1 & 2 & 3 & 1 \\
+		1 & 1 & 2 & 1 \\
+		1 & 2 & 3 & 1 
+	\end{bmatrix}
+\end{math}
+\par one of the bases for $C({\mathbf{A}})$ is 
+\begin{math}
+	\left\{
+	\begin{bmatrix}
+		1 \\
+		1 \\
+		1 
+	\end{bmatrix}
+	, 
+	\begin{bmatrix}
+		2 \\
+		1 \\
+		2 
+	\end{bmatrix}
+	\right\}
+\end{math}
+\par one of the bases for $N({\mathbf{A}})$ is 
+\begin{math}
+	\left\{
+	\begin{bmatrix}
+		-1 \\
+		-1 \\
+		1 \\
+		0 
+	\end{bmatrix}
+	, 
+	\begin{bmatrix}
+		-1 \\
+		0 \\
+		0 \\
+		1 
+	\end{bmatrix}
+	\right\}
+\end{math}
+\par the rank of ${\mathbf{A}}$ is $2$ = the number of pivot columns = the dimension of $C({\mathbf{A}})$
+\vspace{14pt}
+\newline
+{\textcolor{anhao-scarlet}{$dim \ C({\mathbf{A}}) = rank({\mathbf{A}}) = r$}}
+\newline
+{\textcolor{anhao-scarlet}{$dim \ N({\mathbf{A}}) = the \ number \ of \ free \ variables = n - r$}}
+
+\newpage
+\section{Lecture 10 - 四个基本子空间}
+\pagestyle{fancy}
+\lhead{}
+\chead{Lecture 10 - 四个基本子空间}
+\rhead{}
+
+\noindent {\textcolor{anhao-scarlet}{行秩等于列秩！}}
+
 \end{document}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.4.12)  26 SEP 2023 19:53
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.4.12)  28 SEP 2023 22:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -996,21 +996,51 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[23] (./notes.aux)
+[23]
+File: figures/S9-1.png Graphic file (type bmp)
+<figures/S9-1.png>
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[24]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[25]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[26] (./notes.aux)
 Package rerunfilecheck Info: File `notes.out' has not changed.
-(rerunfilecheck)             Checksum: AE027C4650E921EB042C31BFE134D1ED;1438.
+(rerunfilecheck)             Checksum: 09B4E33433358FE21B7F63647F0C80B5;1810.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 686 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 17623 strings out of 476179
- 364353 string characters out of 5810426
- 725858 words of memory out of 5000000
- 38085 multiletter control sequences out of 15000+600000
- 477489 words of font info for 85 fonts, out of 8000000 for 9000
+ 17643 strings out of 476179
+ 364759 string characters out of 5810426
+ 727273 words of memory out of 5000000
+ 38100 multiletter control sequences out of 15000+600000
+ 478567 words of font info for 93 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  89i,21n,97p,365b,565s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on notes.pdf (24 pages).
+Output written on notes.pdf (27 pages).
