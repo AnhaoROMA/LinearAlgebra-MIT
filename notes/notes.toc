@@ -8,3 +8,5 @@
 \contentsline {section}{\numberline {8}Lecture 08 - 可解性与解的结构}{21}{section.8}%
 \contentsline {section}{\numberline {9}Lecture 09 - 线性相关性、基、维数}{24}{section.9}%
 \contentsline {section}{\numberline {10}Lecture 10 - 四个基本子空间}{27}{section.10}%
+\contentsline {section}{\numberline {11}Lecture 14 - 正交向量与子空间}{28}{section.11}%
+\contentsline {section}{\numberline {12}Lecture 15 - 子空间投影}{30}{section.12}%

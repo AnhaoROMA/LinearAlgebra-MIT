@@ -2586,4 +2586,147 @@ standard basis for $\mathbb{R}^3$ is
 \quad different column space, same row space
 \newline
 {\textcolor{anhao-scarlet}{因为 ${\mathbf{R}}$ 是由 ${\mathbf{A}}$ 经过行变化而来，所以它们共享同一个行空间。}}
+
+\newpage
+\section{Lecture 14 - 正交向量与子空间}
+\pagestyle{fancy}
+\lhead{}
+\chead{Lecture 14 - 正交向量与子空间}
+\rhead{}
+
+\noindent key words:
+\begin{itemize}
+	\item orthogonal vectors
+	\item orthogonal subspaces
+	\item orthogonal bases
+\end{itemize}
+\begin{center}
+	\includegraphics[scale=0.75]{figures/S14-1.png}
+\end{center}
+\vspace{14pt}
+orthogonal(perpendicular) vectors: ${\mathbf{x^{T}}}{\mathbf{y}} = {\mathbf{0}}$
+\newline
+proof:
+\par $\because \Vert{\mathbf{x}}\Vert^2 + \Vert{\mathbf{y}}\Vert^2 = \Vert{\mathbf{x+y}}\Vert^2$ \quad (Pythagoras)
+\par 即 ${\mathbf{x^{T}}}{\mathbf{x}} + {\mathbf{y^{T}}}{\mathbf{y}} = {\mathbf{(x+y)^{T}}}{\mathbf{(x+y)}}$
+\par $\Leftrightarrow {\mathbf{x^{T}}}{\mathbf{x}} + {\mathbf{y^{T}}}{\mathbf{y}} = {\mathbf{(x^T+y^T)}}{\mathbf{(x+y)}}$
+\par $\therefore {\mathbf{x^{T}}}{\mathbf{y}} + {\mathbf{x}}{\mathbf{y^{T}}} = {\mathbf{0}}$
+\par $\because {\mathbf{x^{T}}}{\mathbf{y}} = {\mathbf{x}}{\mathbf{y^{T}}}$
+\par $\therefore {\mathbf{x^{T}}}{\mathbf{y}} = {\mathbf{0}}$
+\par Q.E.D.
+\vspace{14pt}
+\newline
+subspace $S$ is orthogonal to subspace $T$, 
+\par means that every vector in $S$ is orthogonal to every vector in $T$
+\begin{center}
+	\includegraphics[scale=0.4]{figures/S14-2.png}
+\end{center}
+"non-zero vectors are not orthogonal to themselves"
+\newline
+"if two subspaces meet at some non-zero vectors, they are not orthogonal"
+\vspace{14pt}
+\newline
+row space is orthogonal to null space, why?
+\par ${\mathbf{A}}{\mathbf{x}}={\mathbf{0}}$
+\par 
+\begin{math}
+	\begin{bmatrix}
+		\quad & row_1 & \quad \\
+		\quad & row_2 & \quad \\
+		\quad & \cdots & \quad \\
+		\quad & row_m & \quad \\
+	\end{bmatrix}
+	\begin{bmatrix}
+		\quad & x_1 & \quad \\
+		\quad & x_2 & \quad \\
+		\ & \ & \ \\
+		\quad & \vdots & \quad \\
+		\ & \ & \ \\
+		\quad & x_n & \quad \\
+	\end{bmatrix}
+	 = 
+	\begin{bmatrix}
+		\quad & 0 & \quad \\
+		\quad & 0 & \quad \\
+		\ & \ & \ \\
+		\quad & \vdots & \quad \\
+		\ & \ & \ \\
+		\quad & 0 & \quad \\
+	\end{bmatrix}
+\end{math}
+\par therefore,
+\par\qquad $c_1{\mathbf{(row_1)^T}}{\mathbf{x}} = 0$
+\par\qquad $c_2{\mathbf{(row_2)^T}}{\mathbf{x}} = 0$
+\par\qquad $\cdots\quad\cdots\quad\cdots$
+\par\qquad $c_m{\mathbf{(row_m)^T}}{\mathbf{x}} = 0$
+\par $\therefore \left[ c_1{\mathbf{(row_1)^T}} + c_2{\mathbf{(row_2)^T}} + \cdots + c_m{\mathbf{(row_m)^T}} \right]{\mathbf{x}} = {\mathbf{0}}$
+\par $\therefore \left[ c_1{\mathbf{row_1}} + c_2{\mathbf{row_2}} + \cdots + c_m{\mathbf{row_m}} \right]^{\mathbf{T}}{\mathbf{x}} = {\mathbf{0}}$
+\par Q.E.D.
+\vspace{14pt}
+\newline
+{\textcolor{anhao-scarlet}{正交子空间可以不同维！}}
+\vspace{14pt}
+\newline
+null space and row space are orthogonal complements (补集) in $\mathbb{R}^n$
+\newline
+注：空间的正交补，包含了所有与之正交的向量，而不只是部分。
+\newline
+null space contains all, not just some, vectors that are perpendicular to row space
+
+\newpage
+\section{Lecture 15 - 子空间投影}
+\pagestyle{fancy}
+\lhead{}
+\chead{Lecture 15 - 子空间投影}
+\rhead{}
+\noindent “如何求一个无解的方程组的解？” （回归问题、拟合、坏数据）
+\newline
+"solve" ${\mathbf{A}}{\mathbf{x}} = {\mathbf{b}}$ when there is no solution, what's the best solution?
+\vspace{14pt}
+\newline
+{\textcolor{anhao-scarlet}{${\mathbf{A^{T}}}{\mathbf{A}}$ is symmetric}}
+\newline
+proof:
+\par $({\mathbf{A^{T}}}{\mathbf{A}})^{\mathbf{T}} = {\mathbf{A^{T}}}{\mathbf{A^{TT}}} = {\mathbf{A^{T}}}{\mathbf{A}}$
+\vspace{14pt}
+\newline
+{\textcolor{anhao-scarlet}{$rank({\mathbf{A^{T}}}{\mathbf{A}}) = rank({\mathbf{A}})$}}
+\vspace{14pt}
+\newline
+{
+	\textcolor{anhao-scarlet}
+	{
+		$rank({\mathbf{A}}{\mathbf{B}}) \leq min \{ rank({\mathbf{A}}), rank({\mathbf{B}}) \}$
+	}
+}
+\vspace{14pt}
+\newline
+\begin{math}
+	{\mathbf{A}}{\mathbf{x}} = {\mathbf{b}}
+	\longrightarrow
+	{\mathbf{A^{T}}}{\mathbf{A}}{\mathbf{\hat{x}}} = {\mathbf{A^{T}}}{\mathbf{b}}
+\end{math}
+\vspace{14pt}
+\newline
+{
+	\textcolor{anhao-scarlet}
+	{
+		${\mathbf{A^{T}}}{\mathbf{A}}$ 不一定是可逆的
+	}
+}
+，例如零矩阵，或者
+\begin{math}
+	\begin{bmatrix}
+		1 & 3 \\
+		1 & 3 \\
+		1 & 3 
+	\end{bmatrix}
+\end{math}
+\newline
+{
+	\textcolor{anhao-scarlet}
+	{
+		${\mathbf{A^{T}}}{\mathbf{A}}$ is invertible exactly if ${\mathbf{A}}$ has independent columns
+	}
+}
 \end{document}
