@@ -2521,6 +2521,33 @@ Example:
 {\textcolor{anhao-scarlet}{$dim \ C({\mathbf{A}}) = rank({\mathbf{A}}) = r$}}
 \newline
 {\textcolor{anhao-scarlet}{$dim \ N({\mathbf{A}}) = the \ number \ of \ free \ variables = n - r$}}
+\vspace{14pt}
+\newline
+{\textcolor{anhao-scarlet}{行秩等于列秩！}}
+\vspace{14pt}
+\newline
+standard basis for $\mathbb{R}^3$ is 
+\begin{math}
+	\left\{
+	\begin{bmatrix}
+		1 \\
+		0 \\
+		0 
+	\end{bmatrix}
+	, 
+	\begin{bmatrix}
+		0 \\
+		1 \\
+		0 
+	\end{bmatrix}
+	, 
+	\begin{bmatrix}
+		0 \\
+		0 \\
+		1 
+	\end{bmatrix}
+	\right\}
+\end{math}
 
 \newpage
 \section{Lecture 10 - 四个基本子空间}
@@ -2529,6 +2556,34 @@ Example:
 \chead{Lecture 10 - 四个基本子空间}
 \rhead{}
 
-\noindent {\textcolor{anhao-scarlet}{行秩等于列秩！}}
-
+\noindent 4 fundamental subspaces of ${\mathbf{A}}_{m \times n}$
+\begin{itemize}
+	\item the column space, $C({\mathbf{A}})$, $C({\mathbf{A}}) \subset \mathbb{R}^m$
+	\item the null space, $N({\mathbf{A}})$, $N({\mathbf{A}}) \subset \mathbb{R}^n$
+	\item the row space, it's all the combinations of the rows, $C({\mathbf{A^{T}}})$, $C({\mathbf{A^{T}}}) \subset \mathbb{R}^n$
+	\item the null space of ${\mathbf{A^{T}}}$, $N({\mathbf{A^{T}}})$, the left null space of ${\mathbf{A}}$, $N({\mathbf{A^{T}}}) \subset \mathbb{R}^m$
+\end{itemize}
+\begin{center}
+	\includegraphics[scale=0.8]{figures/S10-1.png}
+\end{center}
+\begin{center}
+	\begin{tabular}{ c c c c c }
+		\toprule
+		\ & $C({\mathbf{A}})$ & $C({\mathbf{A^{T}}})$ & $N({\mathbf{A}})$ & $N({\mathbf{A^{T}}})$ \\
+		\toprule
+		basis & the pivot columns & the first $r$ rows of ${\mathbf{R}}$ & the special solutions & \ \\
+		\hline
+		dimension & rank $r$ & rank $r$ & $n-r$ & $m-r$ \\
+		\bottomrule
+	\end{tabular}
+\end{center}
+{\textcolor{anhao-scarlet}{the row space and the column space have the same dimension!}}
+\vspace{14pt}
+\newline
+\begin{math}
+	{\mathbf{A}} \xrightarrow{\quad rref() \quad} {\mathbf{R}}
+\end{math}
+\quad different column space, same row space
+\newline
+{\textcolor{anhao-scarlet}{因为 ${\mathbf{R}}$ 是由 ${\mathbf{A}}$ 经过行变化而来，所以它们共享同一个行空间。}}
 \end{document}
