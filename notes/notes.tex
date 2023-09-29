@@ -2729,4 +2729,93 @@ proof:
 		${\mathbf{A^{T}}}{\mathbf{A}}$ is invertible exactly if ${\mathbf{A}}$ has independent columns
 	}
 }
+\vspace{31pt}
+\newline
+考虑二维的情况
+\begin{center}
+	\includegraphics[scale=0.8]{figures/S15-1.png}
+\end{center}
+\begin{math}
+	{\mathbf{a^{T}}}{\mathbf{e}} = {\mathbf{a^{T}}}({\mathbf{b}}-{\mathbf{p}}) = {\mathbf{a^{T}}}({\mathbf{b}}-\lambda{\mathbf{a}}) = 0
+\end{math}
+\newline
+\begin{math}
+	\Longrightarrow
+	\lambda{\mathbf{a^{T}}}{\mathbf{a}} = {\mathbf{a^{T}}}{\mathbf{b}}
+\end{math}
+\newline
+\begin{math}
+	\Longrightarrow
+	\lambda = \cfrac{{\mathbf{a^{T}}}{\mathbf{b}}}{{\mathbf{a^{T}}}{\mathbf{a}}}
+	\in {\mathbb{R}}
+\end{math}
+\newline
+\begin{math}
+	\Longrightarrow
+	{\mathbf{p}} = \lambda\cdot{\mathbf{a}} = {\mathbf{a}}\cdot\lambda = {\mathbf{a}}\cdot\cfrac{{\mathbf{a^{T}}}{\mathbf{b}}}{{\mathbf{a^{T}}}{\mathbf{a}}} = 
+	\cfrac{{\mathbf{a}}{\mathbf{a^{T}}}}{{\mathbf{a^{T}}}{\mathbf{a}}}\cdot{\mathbf{b}} = {\mathbf{P}}{\mathbf{b}}
+\end{math}
+\vspace{14pt}
+\newline
+${\mathbf{P}}$ is the projection matrix acting on the input, ${\mathbf{P}}^2={\mathbf{P}}$, ${\mathbf{P^{T}}}={\mathbf{P}}$
+\newline
+if ${\mathbf{b}}$ is doubled, ${\mathbf{p}}$ will be doubled
+\newline
+if ${\mathbf{a}}$ is doubled, ${\mathbf{p}}$ will not change at all
+\vspace{31pt}
+\newline
+为什么这里要引入投影矩阵？
+\newline
+$\because$ ${\mathbf{A}}{\mathbf{x}}={\mathbf{b}}$ may have no solutions
+\newline
+$\therefore$ I turn to solve the closest problem that I can solve
+\newline
+$\because$ ${\mathbf{A}}{\mathbf{x}}$ will always be in the column space of ${\mathbf{A}}$, but ${\mathbf{b}}$ is probably not
+\newline
+（所以我要怎么微调 ${\mathbf{b}}$ ？）
+\newline
+$\therefore$ solve ${\mathbf{A}}{\mathbf{\hat{x}}}={\mathbf{p}}$ instead, where ${\mathbf{p}}$ is the projection of ${\mathbf{b}}$ onto the column space
+\vspace{31pt}
+\newline
+考虑三维的情况
+\begin{center}
+	\includegraphics[scale=0.8]{figures/S15-2.png}
+\end{center}
+$\left\{{\mathbf{a_1}}, {\mathbf{a_2}}\right\}$ is a basis for the plane, plane is the column space of ${\mathbf{A}}$
+\newline
+若 ${\mathbf{b}}$ 不在列空间中，则投影到列空间里，若 ${\mathbf{b}}$ 在列空间中，则投影结果就是 ${\mathbf{b}}$ 自己
+\newline
+${\mathbf{e}}$ is perpendicular to the plane
+\newline
+投影 ${\mathbf{p}}$ 是基向量 $\left\{{\mathbf{a_1}}, {\mathbf{a_2}}\right\}$ 的线性组合，${\mathbf{p}} = \hat{x_1}{\mathbf{a_1}} + \hat{x_2}{\mathbf{a_2}}$（在${\mathbf{a_1}}$方向和${\mathbf{a_2}}$方向的投影之和）
+\vspace{31pt}
+\newline
+如前文所说，我们改为求解 ${\mathbf{A}}{\mathbf{\hat{x}}}={\mathbf{p}}$ (to find ${\mathbf{\hat{x}}}$)
+\newline
+key: ${\mathbf{e}}={\mathbf{b}}-{\mathbf{p}}={\mathbf{b}}-{\mathbf{A}}{\mathbf{\hat{x}}}$ is perpendicular to the plane
+\newline
+$\because$ ${\mathbf{A^{T}}}{\mathbf{e}} = {\mathbf{0}}$
+\newline
+$\therefore$ ${\mathbf{A^{T}}}({\mathbf{b}}-{\mathbf{A}}{\mathbf{\hat{x}}}) = {\mathbf{0}}$
+\newline
+$\therefore$ ${\mathbf{\hat{x}}} = {\mathbf{({\mathbf{A^{T}}}{\mathbf{A}})^{-1}}} {\mathbf{A^{T}}}{\mathbf{b}}$ \quad $\Longleftarrow$ 这就是方程的近似解
+\newline
+\begin{math}
+	{\mathbf{p}} = {\mathbf{A}}{\mathbf{\hat{x}}} = {\mathbf{A}}{\mathbf{({\mathbf{A^{T}}}{\mathbf{A}})^{-1}}} {\mathbf{A^{T}}}{\mathbf{b}}
+\end{math}
+\newline
+\begin{math}
+	{\mathbf{P}} = {\mathbf{A}}{\mathbf{({\mathbf{A^{T}}}{\mathbf{A}})^{-1}}}{\mathbf{A^{T}}}
+\end{math}
+\vspace{31pt}
+\newline
+if ${\mathbf{A}}$ is invertible, then ${\mathbf{A}}{\mathbf{({\mathbf{A^{T}}}{\mathbf{A}})^{-1}}}{\mathbf{A^{T}}} = {\mathbf{I}}$
+\newline
+注意，以上对一般的情况不成立，毕竟 ${\mathbf{A}}$ 甚至不是方阵！
+\newline
+if ${\mathbf{A}}$ is square and invertible, 
+\newline
+此时 $C({\mathbf{A}})$ 为整个 $\mathbb{R^n}$ 空间，则 ${\mathbf{P}} = {\mathbf{I}}$ ！
+\newline
+“汝即此间人，不借此间物。”
 \end{document}
