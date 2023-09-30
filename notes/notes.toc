@@ -12,3 +12,7 @@
 \contentsline {section}{\numberline {12}Lecture 15 - 子空间投影}{30}{section.12}%
 \contentsline {section}{\numberline {13}Lecture 16 - 投影矩阵、最小二乘}{32}{section.13}%
 \contentsline {section}{\numberline {14}Lecture 17 - 正交矩阵、格拉姆-施密特正交化}{34}{section.14}%
+\contentsline {section}{\numberline {15}Lecture 18 - 行列式及其性质}{37}{section.15}%
+\contentsline {section}{\numberline {16}Lecture 19 - 行列式公式、代数余子式}{38}{section.16}%
+\contentsline {section}{\numberline {17}Lecture 20 - 克拉默法则、逆矩阵、体积}{40}{section.17}%
+\contentsline {section}{\numberline {18}Lecture 21 - 特征值与特征向量}{41}{section.18}%

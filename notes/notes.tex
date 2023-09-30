@@ -3258,4 +3258,396 @@ solution:
 \end{math}
 \par 可以直接看出 ${\mathbf{a}}$ 与 ${\mathbf{b}}$ 分别在 $\left\{{\mathbf{q_1}}, {\mathbf{q_2}}\right\}$ 坐标系中的坐标为 $({\mathbf{q_1^T}}{\mathbf{a}}, 0)$ 与 $({\mathbf{q_1^T}}{\mathbf{b}}, {\mathbf{q_2^T}}{\mathbf{b}})$ 。
 
+\newpage
+\section{Lecture 18 - 行列式及其性质}
+\pagestyle{fancy}
+\lhead{}
+\chead{Lecture 18 - 行列式及其性质}
+\rhead{}
+
+\noindent Determinants \quad $\det{{\mathbf{A}}} = \left|{\mathbf{A}}\right|$
+\vspace{14pt}
+\newline
+the big reason we need the determinants is for the Eigen Values
+\vspace{14pt}
+\newline
+3 basic properties
+\newline
+\ding{192} {\textcolor{anhao-purple}{$\det{{\mathbf{I}}} = 1$}}
+\newline
+\ding{193} {\textcolor{anhao-purple}{if to exchange 2 rows, then to reverse the sign of the determinant}}
+\newline
+\ding{194} {\textcolor{anhao-scarlet}{each row }}的{\textcolor{anhao-purple}{线性性质}}
+\par a. 
+\begin{math}
+	\begin{vmatrix}
+		ta & tb \\
+		c & d
+	\end{vmatrix}
+	 = 
+	t
+	\begin{vmatrix}
+		a & b \\
+		c & d
+	\end{vmatrix}
+\end{math}
+\par b.
+\begin{math}
+	\begin{vmatrix}
+		a+a' & b+b' \\
+		c & d
+	\end{vmatrix}
+	 = 
+	\begin{vmatrix}
+		a & b \\
+		c & d
+	\end{vmatrix}
+	 + 
+	\begin{vmatrix}
+		a' & b' \\
+		c & d
+	\end{vmatrix}
+\end{math}
+\par {\textcolor{anhao-scarlet}{注：$\det{({\mathbf{A+B}})} \neq \det{{\mathbf{A}}}+\det{{\mathbf{B}}}$}}
+\vspace{14pt}
+\newline
+7 corollaries
+\newline
+\ding{195} {\textcolor{anhao-purple}{2 equal rows lead to determinant equals 0}}
+\par proof:
+\par\qquad exchange those 2 rows $\Longrightarrow$ same matrix $\Longrightarrow$ $\det{{\mathbf{A}}} = -\det{{\mathbf{A}}}$ $\Longrightarrow$ $\det{{\mathbf{A}}} = 0$
+\newline
+\ding{196} {\textcolor{anhao-purple}{to subtract $l \times row_i$ from $row_j$ $(i \neq j)$, the determinant doesn't change}}
+\par proof:
+\par\qquad 
+\begin{math}
+	\begin{vmatrix}
+		a & b \\
+		c-la & d-lb 
+	\end{vmatrix}
+	 = 
+	\begin{vmatrix}
+		a & b \\
+		c & d 
+	\end{vmatrix}
+	 + 
+	\begin{vmatrix}
+		a & b \\
+		-la & -lb 
+	\end{vmatrix}
+	 = 
+	\begin{vmatrix}
+		a & b \\
+		c & d 
+	\end{vmatrix}
+	 -l
+	\begin{vmatrix}
+		a & b \\
+		a & b 
+	\end{vmatrix}
+	 = 
+	\begin{vmatrix}
+		a & b \\
+		c & d 
+	\end{vmatrix}
+\end{math}
+\newline
+\ding{197} {\textcolor{anhao-purple}{row of zeros ( $rank({\mathbf{A}}) < n$ ) leads to determinant equals 0}}
+\newline
+\ding{198}
+{
+	\textcolor{anhao-purple}
+	{
+		\begin{math}
+			{\mathbf{U}} = 
+			\begin{bmatrix}
+				d_1 & * & \cdots & * \\
+				0 & d_2 & \cdots & * \\
+				\vdots & \ & \ddots & \vdots \\
+				0 & \cdots & \cdots & d_n 
+			\end{bmatrix}
+		\end{math}
+		, 
+		\begin{math}
+			\det{{\mathbf{U}}} = d_1 d_2 \cdots d_n = {\text{product of pivots}}
+		\end{math}
+	}
+}
+\par “MATLAB 计算行列式的原理”
+\newline
+\ding{199}
+{
+	\textcolor{anhao-purple}{
+		\begin{math}
+			\left\{
+			\begin{array}{lcl}
+				\det{\mathbf{A}} = 0 & & {\text{exactly when ${\mathbf{A}}$ is singular/non-invertible}} \\
+				\det{\mathbf{A}} \neq 0 & & {\text{exactly when ${\mathbf{A}}$ is non-singular/invertible}} 
+			\end{array}
+			\right.
+		\end{math}
+	}
+}
+\newline
+\ding{200}
+{\textcolor{anhao-purple}{$\det{(\mathbf{AB})} = (\det{\mathbf{A}})(\det{\mathbf{B}})$}}
+\par $\det{(\mathbf{A^{-1}})} = (\det{\mathbf{A}})^{-1} = \cfrac{1}{\det{\mathbf{A}}}$
+\par $\det{(\mathbf{A^2})} = (\det{\mathbf{A}})^2$
+\par 注：$\det{(\mathbf{2A})} = 2^n \cdot (\det{\mathbf{A}})$
+\newline
+\ding{201}
+{\textcolor{anhao-purple}{$\det{(\mathbf{A^{T}})} = \det{\mathbf{A}}$ \qquad “行有的性质，列也有”}}
+\par proof:
+\par\qquad 
+\begin{math}
+	\left|{\mathbf{A^{T}}}\right| = \left|{\mathbf{A}}\right|
+	\xleftarrow{\text{只需证明}}
+	\left|{\mathbf{U^{T}L^{T}}}\right| = \left|{\mathbf{LU}}\right|
+	\xleftarrow{\text{只需证明}}
+	\left|{\mathbf{U^{T}}}\right|\left|{\mathbf{L^{T}}}\right| = \left|{\mathbf{L}}\right|\left|{\mathbf{U}}\right|
+\end{math}
+\par\qquad 而 ${\mathbf{L}}$ 、${\mathbf{U}}$ 都是三角阵，其行列式只与对角线元素有关。
+
+\newpage
+\section{Lecture 19 - 行列式公式、代数余子式}
+\pagestyle{fancy}
+\lhead{}
+\chead{Lecture 19 - 行列式公式、代数余子式}
+\rhead{}
+
+\noindent
+\begin{math}
+	\begin{array}{lcl}
+		\begin{vmatrix}
+			a & b \\
+			c & d 
+		\end{vmatrix}
+		& = & 
+		\begin{vmatrix}
+			a+0 & 0+b \\
+			c & d 
+		\end{vmatrix}
+		\\
+		& = & 
+		\begin{vmatrix}
+			a & 0 \\
+			c & d 
+		\end{vmatrix}
+		+ 
+		\begin{vmatrix}
+			0 & b \\
+			c & d 
+		\end{vmatrix}
+		\\
+		& = & 
+		\begin{vmatrix}
+			a & 0 \\
+			c+0 & 0+d 
+		\end{vmatrix}
+		+ 
+		\begin{vmatrix}
+			0 & b \\
+			c+0 & 0+d 
+		\end{vmatrix}
+		\\
+		& = & 
+		\begin{vmatrix}
+			a & 0 \\
+			c & 0 
+		\end{vmatrix}
+		+ 
+		\begin{vmatrix}
+			a & 0 \\
+			0 & d 
+		\end{vmatrix}
+		+ 
+		\begin{vmatrix}
+			0 & b \\
+			c & 0 
+		\end{vmatrix}
+		+ 
+		\begin{vmatrix}
+			0 & b \\
+			0 & d 
+		\end{vmatrix}
+		\\
+		& = & 
+		0 + ad + (-bc) + 0
+		\\
+		& = & 
+		ad-bc
+	\end{array}	
+\end{math}
+\newline
+\begin{math}
+	\begin{array}{lcl}
+		\begin{vmatrix}
+			a_{11} & a_{12} & a_{13} \\
+			a_{21} & a_{22} & a_{23} \\
+			a_{31} & a_{32} & a_{33} 
+		\end{vmatrix}
+		& = &
+		\begin{vmatrix}
+			a_{11} & 0 & 0 \\
+			0 & a_{22} & 0 \\
+			0 & 0 & a_{33} 
+		\end{vmatrix}
+		+ 
+		\begin{vmatrix}
+			a_{11} & 0 & 0 \\
+			0 & 0 & a_{23} \\
+			0 & a_{32} & 0 
+		\end{vmatrix}
+		+ 
+		\begin{vmatrix}
+			0 & a_{12} & 0 \\
+			a_{21} & 0 & 0 \\
+			0 & 0 & a_{33} 
+		\end{vmatrix}
+		\\
+		&   &
+		+ 
+		\begin{vmatrix}
+			0 & a_{12} & 0 \\
+			0 & 0 & a_{23} \\
+			a_{31} & 0 & 0 
+		\end{vmatrix}
+		+ 
+		\begin{vmatrix}
+			0 & 0 & a_{13} \\
+			a_{21} & 0 & 0 \\
+			0 & a_{32} & 0 
+		\end{vmatrix}
+		+ 
+		\begin{vmatrix}
+			0 & 0 & a_{13} \\
+			0 & a_{22} & 0 \\
+			a_{31} & 0 & 0 
+		\end{vmatrix}
+		\\
+		& = &
+		a_{11}a_{22}a_{33}-a_{11}a_{23}a_{32}-a_{12}a_{21}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}-a_{13}a_{22}a_{31}
+	\end{array}
+\end{math}
+\vspace{31pt}
+\newline
+BIG FORMULA \quad “逆序数”
+\newline
+$\det{\mathbf{A}} = \sum\limits_{n! \ terms} \pm a_{1\alpha}a_{2\beta}a_{3\gamma} \cdots a_{n\omega}$ , where $\left(\alpha, \beta, \gamma, \cdots, \omega\right)$ is a permutation of $\left(1, 2, 3, \cdots, n\right)$
+\vspace{31pt}
+\newline
+onward to cofactors {\textcolor{anhao-scarlet}{代数余子式的作用是把 $n$ 阶行列式化简为 $n-1$ 阶行列式}}
+\newline
+cofactor of $a_{ij}$ = $C_{ij}$ = 
+\begin{math}
+	\left\{
+	\begin{array}{rcl}
+		+ \det{\left( (n-1)\times(n-1){\text{ matrix with }} row_i, col_j {\text{ erased }} \right)} & , & {\text{if }} i+j {\text{ is even}} \\
+		- \det{\left( (n-1)\times(n-1){\text{ matrix with }} row_i, col_j {\text{ erased }} \right)} & , & {\text{if }} i+j {\text{ is odd}}
+	\end{array}
+	\right.
+\end{math}
+\newline
+{\textcolor{anhao-scarlet}{去掉符号的部分称为余子式 minor}}
+\vspace{14pt}
+\newline
+cofactor formula (along $row_1$): $\det{\mathbf{A}} = a_{11}C_{11} + a_{12}C_{12} + \cdots + a_{1n}C_{1n}$
+\vspace{31pt}
+\newline
+\begin{math}
+	\begin{array}{rcl}
+		\begin{vmatrix}
+			a_{11} & a_{12} & a_{13} \\
+			a_{21} & a_{22} & a_{23} \\
+			a_{31} & a_{32} & a_{33} 
+		\end{vmatrix}
+		& = &
+		a_{11}\left(a_{22}a_{33}-a_{23}a_{32}\right) - a_{12}\left(a_{21}a_{33}-a_{23}a_{31}\right) + 
+		a_{13}\left(a_{21}a_{32}-a_{22}a_{31}\right) 
+		\\
+		& = &
+		\begin{vmatrix}
+			a_{11} & 0 & 0 \\
+			0 & a_{22} & a_{23} \\
+			0 & a_{32} & a_{33} 
+		\end{vmatrix}
+		 + 
+		\begin{vmatrix}
+			0 & a_{12} & 0 \\
+			a_{21} & 0 & a_{23} \\
+			a_{31} & 0 & a_{33} 
+		\end{vmatrix}
+		 + 
+		\begin{vmatrix}
+			0 & 0 & a_{13} \\
+			a_{21} & a_{22} & 0 \\
+			a_{31} & a_{32} & 0 
+		\end{vmatrix}
+	\end{array}
+\end{math}
+\vspace{31pt}
+\newline
+Example:
+\par 
+\begin{math}
+	\det{\mathbf{A_1}} = 
+	\begin{vmatrix}
+		1
+	\end{vmatrix}
+	 = 1
+\end{math}
+\par 
+\begin{math}
+	\det{\mathbf{A_2}} = 
+	\begin{vmatrix}
+		1 & 1 \\
+		1 & 1 
+	\end{vmatrix}
+	= 0
+\end{math}
+\par 
+\begin{math}
+	\det{\mathbf{A_3}} = 
+	\begin{vmatrix}
+		1 & 1 & 0 \\
+		1 & 1 & 1 \\
+		0 & 1 & 1 
+	\end{vmatrix}
+	= -1
+\end{math}
+\par 
+\begin{math}
+	\det{\mathbf{A_4}} = 
+	\begin{vmatrix}
+		1 & 1 & 0 & 0 \\
+		1 & 1 & 1 & 0 \\
+		0 & 1 & 1 & 1 \\
+		0 & 0 & 1 & 1 
+	\end{vmatrix}
+	= \det{\mathbf{A_3}} - \det{\mathbf{A_2}}
+	= -1
+\end{math}
+\par $\cdots \quad \cdots \quad \cdots$
+\par $\det{\mathbf{A_n}} = \det{\mathbf{A_{n-1}}} - \det{\mathbf{A_{n-2}}}$ \qquad （递推公式）
+\par so, 
+\par $\det{\mathbf{A_5}}=0$
+\par $\det{\mathbf{A_6}}=1$
+\par $\det{\mathbf{A_7}}=1$
+\par $\det{\mathbf{A_8}}=0$
+\par 1, 0, -1, -1, 0, 1 如此循环，周期为6
+
+\newpage
+\section{Lecture 20 - 克拉默法则、逆矩阵、体积}
+\pagestyle{fancy}
+\lhead{}
+\chead{Lecture 20 - 克拉默法则、逆矩阵、体积}
+\rhead{}
+
+\newpage
+\section{Lecture 21 - 特征值与特征向量}
+\pagestyle{fancy}
+\lhead{}
+\chead{Lecture 21 - 特征值与特征向量}
+\rhead{}
+
 \end{document}
