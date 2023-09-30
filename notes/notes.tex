@@ -2985,5 +2985,277 @@ proof:
 
 \noindent 有一种特别的线性无关：
 columns are definitely independent if they are perpendicular unit vectors, i.e. orthogonal-normal vectors, or orthonormal vectors in short
+\vspace{14pt}
+\newline
+orthonormal basis ${\mathbf{q_1}}$, ${\mathbf{q_2}}$, $\cdots$, ${\mathbf{q_n}}$ \quad such that \quad 
+\begin{math}
+	{\mathbf{q_i^T}}{\mathbf{q_j}} = 
+	\begin{cases}
+		0,  & \text{if $i \neq j$} \\
+		1,  & \text{if $i = j$}
+	\end{cases}
+\end{math}
+\vspace{14pt}
+\newline
+How does having an orthonormal basis make things better? "they never overflow or underflow"\footnote{{\ding{73}}意{\ding{73}}義{\ding{73}}不{\ding{73}}明{\ding{73}}}
+\vspace{31pt}
+\newline
+orthonormal matrix ${\mathbf{Q}}$ (square)
+\newline
+\begin{math}
+	{\mathbf{Q}} = 
+	\begin{bmatrix}
+		\ & | & \ & \ & \ & | & \ \\
+		\ & {\mathbf{q_1}} & \ & \cdots & \ & {\mathbf{q_n}} & \ \\
+		\ & | & \ & \ & \ & | & \ 
+	\end{bmatrix}
+\end{math}
+\newline
+\begin{math}
+	{\mathbf{Q^{T}}}{\mathbf{Q}} = 
+	\begin{bmatrix}
+		-- & {\mathbf{q_1^T}} & -- \\
+		\ & \ & \ \\
+		\ & \vdots & \ \\
+		\ & \ & \ \\
+		-- & {\mathbf{q_n^T}} & -- 
+	\end{bmatrix}
+	\begin{bmatrix}
+		\ & | & \ & \ & \ & | & \ \\
+		\ & {\mathbf{q_1}} & \ & \cdots & \ & {\mathbf{q_n}} & \ \\
+		\ & | & \ & \ & \ & | & \ 
+	\end{bmatrix}
+	 = 
+	\begin{bmatrix}
+		1 & 0 & \cdots & 0 \\
+		0 & 1 & \cdots & 0 \\
+		\vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & \cdots & 1 \\
+	\end{bmatrix}
+	 = 
+	{\mathbf{I}}
+\end{math}
+\newline
+if ${\mathbf{Q}}$ is square, then ${\mathbf{Q^{T}}}{\mathbf{Q}} = {\mathbf{I}}$ tells that ${\mathbf{Q^{T}}} = {\mathbf{Q^{-1}}}$
+\newline
+{\textcolor{anhao-scarlet}{注：若 ${\mathbf{Q}}$ 不是方阵，则未必有 ${\mathbf{Q}}{\mathbf{Q^{T}}} = {\mathbf{I}}$ ，但仍然有 ${\mathbf{Q^{T}}}{\mathbf{Q}} = {\mathbf{I}}$ ！}}
+\vspace{31pt}
+\newline
+in case that the columns of ${\mathbf{A}}$ are not orthonormal, how can I make them so?
+\newline
+{\textcolor{anhao-scarlet}{Graham-Schmidt}}
+\par to start with independent vectors, and we want to make "them"\footnote{not original ones} orthonormal
+\newline
+{\textcolor{anhao-scarlet}{思想：原来的 ${\mathbf{A}}$ 的各列张成（span）一个列空间 $C({\mathbf{A}})$ ，${\mathbf{A}}$ 的列是 $C({\mathbf{A}})$ 的一组基，但这组基还不够好（不正交）。现在通过 Graham-Schmidt 方法去找 $C({\mathbf{A}})$ 的一组标准正交基。}}
+\vspace{31pt}
+\newline
+what's the good of having a ${\mathbf{Q}}$? what formulas become easier?
+\newline
+suppose ${\mathbf{Q}}$ has orthonormal columns, to project onto its column space, 
+\par 
+\begin{math}
+	{\mathbf{P}} = {\mathbf{Q}}({\mathbf{Q^{T}}}{\mathbf{Q}})^{\mathbf{-1}}{\mathbf{Q^{T}}} = 
+	{\mathbf{Q}}\cdot{\mathbf{I}}\cdot{\mathbf{Q^{T}}} = 
+	{\mathbf{Q}}{\mathbf{Q^{T}}} 
+	\quad ( = {\mathbf{I}} \ {\text{if}} \ {\mathbf{Q}} \ {\text{is square}} )
+\end{math}
+\par 
+\begin{math}
+	({\mathbf{Q}}{\mathbf{Q^{T}}})({\mathbf{Q}}{\mathbf{Q^{T}}}) = {\mathbf{Q}}{\mathbf{Q^{T}}}
+\end{math}
+\newline
+to solve the normal equations,
+\par ${\mathbf{A^{T}}}{\mathbf{A}}{\mathbf{\hat{x}}} = {\mathbf{A^{T}}}{\mathbf{b}}$
+\par now ${\mathbf{A}}$ is ${\mathbf{Q}}$,
+\par ${\mathbf{Q^{T}}}{\mathbf{Q}}{\mathbf{\hat{x}}} = {\mathbf{Q^{T}}}{\mathbf{b}}$ $\Longleftrightarrow$ ${\mathbf{\hat{x}}} = {\mathbf{Q^{T}}}{\mathbf{b}}$
+\vspace{31pt}
+\newline
+二维的情形：
+\newline
+independent vectors ${\mathbf{a}}$, ${\mathbf{b}}$ $\longrightarrow$ orthogonal vectors ${\mathbf{A}}$, ${\mathbf{B}}$ $\longrightarrow$ orthonormal vectors $\cfrac{\mathbf{A}}{\Vert{\mathbf{A}}\Vert}$, $\cfrac{\mathbf{B}}{\Vert{\mathbf{B}}\Vert}$
+\begin{center}
+	\includegraphics[scale=0.8]{figures/S17-1.png}
+\end{center}
+\begin{math}
+	{\mathbf{B}} = {\mathbf{b}} - \cfrac{{\mathbf{A}}{\mathbf{A^{T}}}}{{\mathbf{A^{T}}}{\mathbf{A}}}{\mathbf{b}} = {\mathbf{e}}
+\end{math}
+\qquad then ${\mathbf{B}} \perp {\mathbf{A}}$
+\vspace{14pt}
+\newline
+三维的情形：
+\newline
+independent vectors ${\mathbf{a}}$, ${\mathbf{b}}$, ${\mathbf{c}}$
+\par\quad $\longrightarrow$ orthogonal vectors ${\mathbf{A}}$, ${\mathbf{B}}$, ${\mathbf{C}}$
+\par\qquad\qquad $\longrightarrow$ orthonormal vectors $\cfrac{\mathbf{A}}{\Vert{\mathbf{A}}\Vert}$, $\cfrac{\mathbf{B}}{\Vert{\mathbf{B}}\Vert}$, $\cfrac{\mathbf{C}}{\Vert{\mathbf{C}}\Vert}$
+\newline
+idea: ${\mathbf{C}}$ 向 ${\mathbf{A}}$、${\mathbf{B}}$ 所张成的平面投影
+\newline
+\begin{math}
+	{\mathbf{C}} = {\mathbf{c}} - \cfrac{{\mathbf{A}}{\mathbf{A^{T}}}}{{\mathbf{A^{T}}}{\mathbf{A}}}{\mathbf{c}} - \cfrac{{\mathbf{B}}{\mathbf{B^{T}}}}{{\mathbf{B^{T}}}{\mathbf{B}}}{\mathbf{c}}
+\end{math}
+\qquad then ${\mathbf{C}} \perp {\mathbf{A}}$ and ${\mathbf{C}} \perp {\mathbf{B}}$
+\vspace{31pt}
+\newline
+example: 
+\begin{math}
+	{\mathbf{a}} = 
+	\begin{bmatrix}
+		1 \\
+		1 \\
+		1 
+	\end{bmatrix}
+\end{math}
+, 
+\begin{math}
+	{\mathbf{b}} = 
+	\begin{bmatrix}
+		1 \\
+		0 \\
+		2 
+	\end{bmatrix}
+\end{math}
+\begin{math}
+	\left(
+	{\mathbf{T}} = 
+	\begin{bmatrix}
+		\ | & | \ \\
+		\ {\mathbf{a}} & {\mathbf{b}} \ \\
+		\ | & | \ 
+	\end{bmatrix}
+	 = 
+	\begin{bmatrix}
+		1 & 1 \\
+		1 & 0 \\
+		1 & 2 
+	\end{bmatrix}
+	\right)
+\end{math}
+\newline
+solution:
+\par 
+\begin{math}
+	{\mathbf{A}} = {\mathbf{a}} = 
+	\begin{bmatrix}
+		1 \\
+		1 \\
+		1 
+	\end{bmatrix}
+\end{math}
+\par 
+\begin{math}
+	{\mathbf{B}} = 
+	\begin{bmatrix}
+		1 \\
+		0 \\
+		2 
+	\end{bmatrix}
+	 - 
+	\cfrac{
+		\begin{bmatrix}
+			1 & 1 & 1 \\
+			1 & 1 & 1 \\
+			1 & 1 & 1 
+		\end{bmatrix}
+	}
+	{
+		\begin{bmatrix}
+			1 & 1 & 1 
+		\end{bmatrix}
+		\begin{bmatrix}
+			1 \\
+			1 \\
+			1 
+		\end{bmatrix}
+	}
+	\begin{bmatrix}
+		1 \\
+		0 \\
+		2 
+	\end{bmatrix}
+	 = 
+	\begin{bmatrix}
+		1 \\
+		0 \\
+		2 
+	\end{bmatrix}
+	 - 
+	\begin{bmatrix}
+		1 \\
+		1 \\
+		1 
+	\end{bmatrix}
+	 = 
+	\begin{bmatrix}
+		0 \\
+		-1 \\
+		1 
+	\end{bmatrix}
+\end{math}
+\par check: ${\mathbf{A}} \perp {\mathbf{B}}$
+\par
+\begin{math}
+	{\mathbf{q_1}} = 
+	\begin{bmatrix}
+		\cfrac{1}{\sqrt{3}} \\
+		\cfrac{1}{\sqrt{3}} \\
+		\cfrac{1}{\sqrt{3}} 
+	\end{bmatrix}
+\end{math}
+, 
+\begin{math}
+	{\mathbf{q_2}} = 
+	\begin{bmatrix}
+		0 \\
+		-\cfrac{1}{\sqrt{2}} \\
+		\cfrac{1}{\sqrt{2}} 
+	\end{bmatrix}
+\end{math}
+\par 
+\begin{math}
+	{\mathbf{Q}} = 
+	\begin{bmatrix}
+		\ | & | \ \\
+		\ {\mathbf{q_1}} & {\mathbf{q_2}} \ \\
+		\ | & | \ 
+	\end{bmatrix}
+	 = 
+	\begin{bmatrix}
+		\cfrac{1}{\sqrt{3}} & 0 \\
+		\cfrac{1}{\sqrt{3}} & -\cfrac{1}{\sqrt{2}} \\
+		\cfrac{1}{\sqrt{3}} & \cfrac{1}{\sqrt{2}} 
+	\end{bmatrix}
+\end{math}
+\vspace{14pt}
+\par {\textcolor{anhao-scarlet}{the fact: $C({\mathbf{Q}}) = C({{\mathbf{T}}})$ !}}
+\vspace{14pt}
+\par 
+\begin{math}
+	\begin{bmatrix}
+		\ | & | \ \\
+		\ {\mathbf{a}} & {\mathbf{b}} \ \\
+		\ | & | \ 
+	\end{bmatrix}
+	 = 
+	\begin{bmatrix}
+		\ | & | \ \\
+		\ {\mathbf{q_1}} & {\mathbf{q_2}} \ \\
+		\ | & | \ 
+	\end{bmatrix}
+	\begin{bmatrix}
+		{\mathbf{q_1^T}}{\mathbf{a}} & {\mathbf{q_1^T}}{\mathbf{b}} \\
+		{\mathbf{q_2^T}}{\mathbf{a}} & {\mathbf{q_2^T}}{\mathbf{b}}
+	\end{bmatrix}
+	 = 
+	\begin{bmatrix}
+		\ | & | \ \\
+		\ {\mathbf{q_1}} & {\mathbf{q_2}} \ \\
+		\ | & | \ 
+	\end{bmatrix}
+	\begin{bmatrix}
+		{\mathbf{q_1^T}}{\mathbf{a}} & {\mathbf{q_1^T}}{\mathbf{b}} \\
+		0 & {\mathbf{q_2^T}}{\mathbf{b}}
+	\end{bmatrix}
+\end{math}
+\par 可以直接看出 ${\mathbf{a}}$ 与 ${\mathbf{b}}$ 分别在 $\left\{{\mathbf{q_1}}, {\mathbf{q_2}}\right\}$ 坐标系中的坐标为 $({\mathbf{q_1^T}}{\mathbf{a}}, 0)$ 与 $({\mathbf{q_1^T}}{\mathbf{b}}, {\mathbf{q_2^T}}{\mathbf{b}})$ 。
 
 \end{document}
