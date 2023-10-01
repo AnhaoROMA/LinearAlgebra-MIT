@@ -3903,4 +3903,180 @@ proof:
 \chead{Lecture 21 - 特征值与特征向量}
 \rhead{}
 
+\noindent Eigenvalues - Eigenvectors : interested in those ${\mathbf{x}}$'s where ${\mathbf{A}}{\mathbf{x}} // {\mathbf{x}}$ \quad i.e. \quad ${\mathbf{A}}{\mathbf{x}} = \lambda{\mathbf{x}}$
+\vspace{14pt}
+\newline
+we have met the eigenvectors that have eigenvalue 0, when ${\mathbf{A}}{\mathbf{x}} = {\mathbf{0}}$, ${\mathbf{x}}$ is in $N({\mathbf{A}})$
+\newline
+but we are interested in all eigenvalues now
+\vspace{14pt}
+\newline
+Example:
+\par 
+when it comes to a projection matrix, what are ${\mathbf{x}}$'s and $\lambda$'s for projection matrices?
+\newline
+solution:
+\begin{center}
+	\includegraphics[scale=0.5]{figures/S21-1.png}
+\end{center}
+\par
+what vectors do get projected in the same direction ("parallel", could be ${\mathbf{0}}$) ?
+\par \ding{202} that would happen if the vector was right in the plane already
+\par any ${\mathbf{x}}$, which is in the plane, would be an eigenvector, as ${\mathbf{P}}{\mathbf{x}} = 1 \cdot {\mathbf{x}}$
+\par \ding{203} the vectors that are perpendicular to the plane, ${\mathbf{P}}{\mathbf{x}} = 0 \cdot {\mathbf{x}}$
+\vspace{14pt}
+\newline
+Example:
+\par 
+\begin{math}
+	{\mathbf{A}} = 
+	\begin{bmatrix}
+		0 & 1 \\
+		1 & 0 
+	\end{bmatrix}
+\end{math}
+\newline
+solution:
+\par ${\mathbf{A}}$ is such a matrix that permutes $x_1$ and $x_2$ ( switch the two components of ${\mathbf{x}}$ )
+\par \ding{202} 
+\begin{math}
+	{\mathbf{x}} = 
+	\begin{bmatrix}
+		1 \\
+		1 
+	\end{bmatrix}
+\end{math}
+ , 
+${\mathbf{A}}{\mathbf{x}} = 1 \cdot {\mathbf{x}}$
+\par \ding{203} 
+\begin{math}
+	{\mathbf{x}} = 
+	\begin{bmatrix}
+		1 \\
+		-1 
+	\end{bmatrix}
+\end{math}
+, 
+${\mathbf{A}}{\mathbf{x}} = -1 \cdot {\mathbf{x}}$
+\vspace{14pt}
+\newline
+{\textcolor{anhao-scarlet}{the fact: $n \times n$ matrix has $n$ eigenvalues ( some eigenvalues are the same )}}
+\vspace{14pt}
+\newline
+{
+	\textcolor{anhao-scarlet}
+	{
+		the fact: the sum of eigenvalues equals $\underbrace{\text{the sum down the diagonal}}_{trace}$ , i.e. $\sum\limits_{i=1}^{n}\lambda_i = \sum\limits_{i=1}^{n}a_{ii}$
+	}
+}
+\vspace{14pt}
+\newline
+how to find eigenvalues and eigenvectors? $\Longleftrightarrow$ how to solve ${\mathbf{A}}{\mathbf{x}} = \lambda{\mathbf{x}}$ ?
+\par $\left( {\mathbf{A}} - \lambda{\mathbf{I}} \right){\mathbf{x}} = {\mathbf{0}}$
+\par zero vector is an useless eigenvector, so does not count
+\par $\left( {\mathbf{A}} - \lambda{\mathbf{I}} \right){\mathbf{x}} = {\mathbf{0}}$ 有非零解 ${\mathbf{x}}$
+\par $\Longrightarrow$ $\left( {\mathbf{A}} - \lambda{\mathbf{I}} \right)$ has to be singular, otherwise zero vector will be the only solution
+\par $\Longrightarrow$ $\det{\left( {\mathbf{A}} - \lambda{\mathbf{I}} \right) = 0}$ \qquad {\textcolor{anhao-sky}{特征（值）方程}}
+\par after finding all the $\lambda$'s , next step is to find ${\mathbf{x}}$'s
+\par $\left( {\mathbf{A}} - \lambda_i{\mathbf{I}} \right){\mathbf{x}} = {\mathbf{0}}$ $\Longrightarrow$ ${\mathbf{x}}$
+\vspace{14pt}
+\newline
+Example:
+\par 
+\begin{math}
+	{\mathbf{A}} = 
+	\begin{bmatrix}
+		3 & 1 \\
+		1 & 3 
+	\end{bmatrix}
+\end{math}
+\newline
+solution:
+\par
+\begin{math}
+	\det{\left( {\mathbf{A}} - \lambda{\mathbf{I}} \right)} = 
+	\begin{vmatrix}
+		3-\lambda & 1 \\
+		1 & 3-\lambda 
+	\end{vmatrix}
+	 = 
+	(\lambda-2)(\lambda-4)
+\end{math}
+\par set $\det{\left( {\mathbf{A}} - \lambda{\mathbf{I}} \right)} = 0$ , then $\lambda_1 = 4$ , $\lambda_2 = 2$
+\par for $\lambda_1 = 4$ ,
+\par\qquad 
+\begin{math}
+	{\mathbf{A}} - 4{\mathbf{I}} = 
+	\begin{bmatrix}
+		-1 & 1 \\
+		1 & -1 
+	\end{bmatrix}
+\end{math}
+\par\qquad 
+\begin{math}
+	{\mathbf{x_1}} = 
+	\begin{bmatrix}
+		1 \\
+		1
+	\end{bmatrix}
+\end{math}
+is one of the eigenvector that goes with that eigenvalue
+\par for $\lambda_2 = 2$ ,
+\par\qquad 
+\begin{math}
+	{\mathbf{A}} - 2{\mathbf{I}} = 
+	\begin{bmatrix}
+		1 & 1 \\
+		1 & 1 
+	\end{bmatrix}
+\end{math}
+\par\qquad 
+\begin{math}
+	{\mathbf{x_2}} = 
+	\begin{bmatrix}
+		-1 \\
+		1
+	\end{bmatrix}
+\end{math}
+is one of the eigenvector that goes with that eigenvalue
+\newline
+attention:
+\par 
+\begin{math}
+	{\mathbf{B}} = 
+	\begin{bmatrix}
+		0 & 1 \\
+		1 & 0 
+	\end{bmatrix}
+	 = 
+	{\mathbf{A}} - 3{\mathbf{I}}
+\end{math}
+\par ${\mathbf{B}}$'s eigenvalues = ${\mathbf{A}}$'s eigenvalues - 3, respectively
+\par while eigenvectors do not change anymore
+\par generally, if ${\mathbf{A}}{\mathbf{x}} = \lambda{\mathbf{x}}$
+\par then $\left({\mathbf{A}}+n{\mathbf{I}}\right){\mathbf{x}} = \lambda{\mathbf{x}} + n{\mathbf{x}} = (\lambda+n){\mathbf{x}}$
+\vspace{14pt}
+\newline
+Example:
+\par 
+\begin{math}
+	{\mathbf{A}} = 
+	\begin{bmatrix}
+		3 & 1 \\
+		0 & 3 
+	\end{bmatrix}
+\end{math}
+\newline
+solution:
+\par $\lambda_1 = 3$ , 
+\begin{math}
+	{\mathbf{x_1}} = 
+	\begin{bmatrix}
+		1 \\
+		0
+	\end{bmatrix}
+\end{math}
+\par $\lambda_2 = 3$ , 
+${\mathbf{x_2}}$ NO second independent eigenvector
+
 \end{document}
