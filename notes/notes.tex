@@ -3643,6 +3643,259 @@ Example:
 \chead{Lecture 20 - 克拉默法则、逆矩阵、体积}
 \rhead{}
 
+\noindent formula for ${\mathbf{A^{-1}}}$
+\vspace{14pt}
+\newline
+\begin{math}
+	\begin{bmatrix}
+		a & b \\
+		c & d 
+	\end{bmatrix}^{\mathbf{-1}}
+	 = 
+	\cfrac{1}{ad-bc}
+	\begin{bmatrix}
+		d & -b \\
+		-c & a 
+	\end{bmatrix}
+	 = 
+	\cfrac{1}{ad-bc}
+	\begin{bmatrix}
+		C_{11} & C_{21} \\
+		C_{12} & C_{22} 
+	\end{bmatrix}
+\end{math}
+\vspace{14pt}
+\newline
+after observing, 
+\begin{math}
+	{\mathbf{A^{-1}}} = 
+	\cfrac{1}{\det{\mathbf{A}}}
+	\begin{bmatrix}
+		C_{11} & C_{21} & \cdots & C_{n1} \\
+		C_{12} & C_{22} & \cdots & C_{n2} \\
+		\vdots & \vdots & \ddots & \vdots \\
+		C_{1n} & C_{2n} & \cdots & C_{nn} 
+	\end{bmatrix}
+	 = 
+	\cfrac{1}{\det{\mathbf{A}}}
+	\begin{bmatrix}
+		C_{11} & C_{12} & \cdots & C_{1n} \\
+		C_{21} & C_{22} & \cdots & C_{2n} \\
+		\vdots & \vdots & \ddots & \vdots \\
+		C_{n1} & C_{n2} & \cdots & C_{nn} 
+	\end{bmatrix}^{\mathbf{T}}
+	 = 
+	\cfrac{1}{\det{\mathbf{A}}}{\mathbf{C^{T}}}
+\end{math}
+\vspace{14pt}
+\newline
+"algebra instead of algorithm"
+\vspace{14pt}
+\newline
+to prove that {\textcolor{anhao-scarlet}{${\mathbf{A^{-1}}} = \cfrac{1}{\det{\mathbf{A}}}{\mathbf{C^{T}}}$}}
+\newline
+proof:
+\par GOAL is that ${\mathbf{A}}{\mathbf{C^{T}}} = \left( {\det{\mathbf{A}}} \right){\mathbf{I}}$
+\par $\because$ 
+\begin{math}
+	a_{i1}C_{i1} + a_{i2}C_{i2} + \cdots + a_{in}C_{in} = \sum\limits_{j=1}^{n}a_{ij}C_{ij} = {\det{\mathbf{A}}}
+\end{math}
+\par $\because$ when $i \neq j$ , 
+\begin{math}
+	a_{i1}C_{j1} + a_{i2}C_{j2} + \cdots + a_{in}C_{jn} = 
+	\begin{vmatrix}
+		\cdots & \cdots & \cdots & \cdots \\
+		{\textcolor{anhao-orange}{a_{i1}}} & {\textcolor{anhao-orange}{a_{i2}}} & \cdots & {\textcolor{anhao-orange}{a_{in}}} \\
+		\cdots & \cdots & \cdots & \cdots \\
+		{\textcolor{green}{a_{i1}}} & {\textcolor{green}{a_{i2}}} & \cdots & {\textcolor{green}{a_{in}}} \\
+		\cdots & \cdots & \cdots & \cdots 
+	\end{vmatrix}
+	 = 
+	0
+\end{math}
+\par $\therefore$
+\begin{math}
+	\begin{bmatrix}
+		a_{11} & a_{12} & \cdots & a_{1n} \\
+		a_{21} & a_{22} & \cdots & a_{2n} \\
+		\vdots & \vdots & \ddots & \vdots \\
+		a_{n1} & a_{n2} & \cdots & a_{nn} 
+	\end{bmatrix}
+	\begin{bmatrix}
+		C_{11} & C_{21} & \cdots & C_{n1} \\
+		C_{12} & C_{22} & \cdots & C_{n2} \\
+		\vdots & \vdots & \ddots & \vdots \\
+		C_{1n} & C_{2n} & \cdots & C_{nn} 
+	\end{bmatrix}
+	 = 
+	\begin{bmatrix}
+		\left|{\mathbf{A}}\right| & \ & \ & \ \\
+		\ & \left|{\mathbf{A}}\right| & \ & \ \\
+		\ & \ & \ddots & \ \\
+		\ & \ & \ & \left|{\mathbf{A}}\right| 
+	\end{bmatrix}
+\end{math}
+\par Q.E.D.
+\vspace{14pt}
+\newline
+{\textcolor{anhao-scarlet}{as long as the determinant is not zero, that's exactly when there exists an inverse}}
+\vspace{14pt}
+\newline
+\begin{math}
+	{\mathbf{A}}{\mathbf{x}} = {\mathbf{b}}
+	\quad\Longrightarrow\quad
+	{\mathbf{x}} = {\mathbf{A^{-1}}}{\mathbf{b}} = \cfrac{1}{\det{\mathbf{A}}}{\mathbf{C^{T}}}{\mathbf{b}}
+	\quad\Longrightarrow\quad
+	{\text{CRAMER's RULE}}
+\end{math}
+\vspace{14pt}
+\newline
+\begin{math}
+	x_1 = 
+	\cfrac{1}{\det{\mathbf{A}}}
+	\left(
+	C_{11}b_1 + C_{21}b_2 + \cdots + C_{n1}b_n
+	\right)
+	=
+	\cfrac{1}{\det{\mathbf{A}}}
+	\begin{vmatrix}
+		b_1 & a_{12} & \cdots & a_{1n} \\
+		b_2 & a_{22} & \cdots & a_{2n} \\
+		\vdots & \vdots & \ddots & \vdots \\
+		b_n & a_{n2} & \cdots & a_{nn} 
+	\end{vmatrix}
+\end{math}
+\newline
+\begin{math}
+	x_2 = 
+	\cfrac{1}{\det{\mathbf{A}}}
+	\left(
+	C_{12}b_1 + C_{22}b_2 + \cdots + C_{n2}b_n
+	\right)
+	=
+	\cfrac{1}{\det{\mathbf{A}}}
+	\begin{vmatrix}
+		a_{11} & b_1 & \cdots & a_{1n} \\
+		a_{21} & b_2 & \cdots & a_{2n} \\
+		\vdots & \vdots & \ddots & \vdots \\
+		a_{n1} & b_n & \cdots & a_{nn} 
+	\end{vmatrix}
+\end{math}
+\newline
+$\cdots \qquad \cdots \qquad \cdots \qquad \cdots$
+\newline
+\begin{math}
+	x_i = 
+	\cfrac{1}{\det{\mathbf{A}}}
+	\left(
+	C_{1i}b_1 + C_{2i}b_2 + \cdots + C_{ni}b_n
+	\right)
+	=
+	\cfrac{1}{\det{\mathbf{A}}}
+	\underbrace{
+		\begin{vmatrix}
+			a_{11} & \cdots & b_1 & \cdots & a_{1n} \\
+			a_{21} & \cdots & b_2 & \cdots & a_{2n} \\
+			\vdots & \ & \vdots & \ & \vdots \\
+			a_{n1} & \cdots & b_n & \cdots & a_{nn} 
+		\end{vmatrix}
+	}_{\textcolor{anhao-scarlet}{{\mathbf{A}}{\text{ with }}col_i{\text{ replaced by the right-hand side }}{\mathbf{b}}}}
+	\triangleq 
+	\cfrac{1}{\det{\mathbf{A}}}\det{\left( {\mathbf{B_i}} \right)}
+\end{math}
+\newline
+$\cdots \qquad \cdots \qquad \cdots \qquad \cdots$
+\newline
+\begin{math}
+	x_n = 
+	\cfrac{1}{\det{\mathbf{A}}}
+	\left(
+	C_{1n}b_1 + C_{2n}b_2 + \cdots + C_{nn}b_n
+	\right)
+	=
+	\cfrac{1}{\det{\mathbf{A}}}
+	\begin{vmatrix}
+		a_{11} & a_{12} & \cdots & b_1 \\
+		a_{21} & a_{22} & \cdots & b_2 \\
+		\vdots & \vdots & \ddots & \vdots \\
+		a_{n1} & a_{n2} & \cdots & b_n 
+	\end{vmatrix}
+\end{math}
+\vspace{31pt}
+\newline
+{\textcolor{anhao-scarlet}{the fact}}
+\par the determinant gives a volume
+\par the determinant is actually equal to the volume of something
+\begin{center}
+	\includegraphics[scale=0.6]{figures/S20-1.png}
+\end{center}
+\begin{math}
+	V = 
+	\left|
+	\det{\mathbf{A}}
+	\right|
+	 = 
+	\left|
+	\begin{vmatrix}
+		a_{11} & a_{12} & a_{13} \\
+		a_{21} & a_{22} & a_{23} \\
+		a_{31} & a_{32} & a_{33} 
+	\end{vmatrix}
+	\right|
+	 > 
+	0
+\end{math}
+\qquad
+符号代表了是左手系还是右手系
+\vspace{14pt}
+\newline
+special case: ${\mathbf{A}} = {\mathbf{I}}$
+\begin{center}
+	\includegraphics[scale=0.4]{figures/S20-2.png}
+\end{center}
+\vspace{14pt}
+special case: ${\mathbf{A}} = {\mathbf{Q}}$ (orthonormal matrix), the cube is a rotated identity cube
+\newline
+proof:
+\par $\because$ ${\mathbf{Q^{T}}}{\mathbf{Q}} = {\mathbf{I}}$
+\par $\therefore$ $\left|{\mathbf{Q^{T}}}\right|\left|{\mathbf{Q}}\right| = \left|{\mathbf{I}}\right| = 1$
+\par $\because$ $\left|{\mathbf{Q^{T}}}\right| = \left|{\mathbf{Q}}\right|$
+\par $\therefore$ $\left|{\mathbf{Q}}\right|^{2} = 1$
+\par $\therefore$ $\left|{\mathbf{Q}}\right| = \pm 1$
+\vspace{14pt}
+\begin{center}
+	\includegraphics[scale=0.7]{figures/S20-3.png}
+\end{center}
+\begin{math}
+	S = 
+	\left|
+	\det{
+		\begin{bmatrix}
+			a & b \\
+			c & d 
+		\end{bmatrix}
+	}
+	\right|
+	=
+	\left|
+	ad-bc
+	\right|
+\end{math}
+\begin{center}
+	\includegraphics[scale=0.7]{figures/S20-4.png}
+\end{center}
+\begin{math}
+	S = 
+	\left|
+	\cfrac{1}{2}
+	\begin{vmatrix}
+		x_1 & y_1 & 1 \\
+		x_2 & y_2 & 1 \\
+		x_3 & y_3 & 1 
+	\end{vmatrix}
+	\right|
+\end{math}
+
 \newpage
 \section{Lecture 21 - 特征值与特征向量}
 \pagestyle{fancy}

@@ -15,4 +15,4 @@
 \contentsline {section}{\numberline {15}Lecture 18 - 行列式及其性质}{37}{section.15}%
 \contentsline {section}{\numberline {16}Lecture 19 - 行列式公式、代数余子式}{38}{section.16}%
 \contentsline {section}{\numberline {17}Lecture 20 - 克拉默法则、逆矩阵、体积}{40}{section.17}%
-\contentsline {section}{\numberline {18}Lecture 21 - 特征值与特征向量}{41}{section.18}%
+\contentsline {section}{\numberline {18}Lecture 21 - 特征值与特征向量}{43}{section.18}%

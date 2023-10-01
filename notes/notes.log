@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.4.12)  30 SEP 2023 20:23
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.4.12)  1 OCT 2023 10:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1178,6 +1178,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [39]
+Overfull \hbox (11.42575pt too wide) in paragraph at lines 3646--3698
+\TU/lmr/m/n/12 after observing, $[] \OT1/cmr/m/n/12 = [] [] = [] [][] = [][]$
+ []
+
+
+Overfull \hbox (18.01457pt too wide) in paragraph at lines 3738--3827
+\OML/cmm/m/it/12 x[] \OT1/cmr/m/n/12 = [] [] = [] [] \U/msa/m/n/12 , [] [] []$ 
+
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1187,6 +1197,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [40]
+File: figures/S20-1.png Graphic file (type bmp)
+<figures/S20-1.png>
+File: figures/S20-2.png Graphic file (type bmp)
+<figures/S20-2.png>
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1195,7 +1210,30 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[41] (./notes.aux)
+[41]
+File: figures/S20-3.png Graphic file (type bmp)
+<figures/S20-3.png>
+File: figures/S20-4.png Graphic file (type bmp)
+<figures/S20-4.png>
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[42]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[43] (./notes.aux)
 Package rerunfilecheck Info: File `notes.out' has not changed.
 (rerunfilecheck)             Checksum: E63FCA92C6DA30CEB7AB2F523621FA9E;3359.
  )
@@ -1204,12 +1242,12 @@ Package rerunfilecheck Info: File `notes.out' has not changed.
 ### simple group (level 1) entered at line 686 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 17776 strings out of 476179
- 369828 string characters out of 5810426
+ 17808 strings out of 476179
+ 370480 string characters out of 5810426
  727982 words of memory out of 5000000
- 38223 multiletter control sequences out of 15000+600000
+ 38251 multiletter control sequences out of 15000+600000
  478935 words of font info for 95 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  89i,21n,97p,365b,565s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on notes.pdf (42 pages).
+Output written on notes.pdf (44 pages).
